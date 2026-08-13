@@ -1,0 +1,382 @@
+/* ==========================================================================
+   Wallpad — marketing site
+   Editorial paper-and-ink palette, echoing the app's brand.
+   ========================================================================== */
+
+:root {
+  /* Light: cream paper + ink (matches app icon) */
+  --paper:      #f1ebe1;
+  --paper-deep: #e6ded0;
+  --paper-card: #f7f2ea;
+  --ink:        #111110;
+  --ink-soft:   #4a473f;
+  --ink-faint:  #7a766b;
+  --line:       rgba(17, 17, 16, 0.12);
+  --line-soft:  rgba(17, 17, 16, 0.07);
+  --shadow:     rgba(40, 34, 22, 0.14);
+
+  --radius:   18px;
+  --radius-lg: 28px;
+  --maxw:     1120px;
+
+  /* Display: SF Pro Rounded on Apple platforms (matches the app wordmark),
+     with a rounded web fallback. Body: clean humanist sans. */
+  --display: ui-rounded, "SF Pro Rounded", "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --sans:    "Nunito Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dark: warm near-black paper + off-white ink (matches app dark mode) */
+    --paper:      #19180f;
+    --paper-deep: #0e0d0c;
+    --paper-card: #221f16;
+    --ink:        #ece5da;
+    --ink-soft:   #b8b1a4;
+    --ink-faint:  #8a8479;
+    --line:       rgba(236, 229, 218, 0.14);
+    --line-soft:  rgba(236, 229, 218, 0.08);
+    --shadow:     rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Reset & base
+   -------------------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: var(--sans);
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.6;
+  font-size: 17px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+::selection { background: var(--ink); color: var(--paper); }
+
+/* --------------------------------------------------------------------------
+   Layout helpers
+   -------------------------------------------------------------------------- */
+.wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+section { position: relative; }
+
+.eyebrow {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 18px;
+}
+
+h1, h2, h3 { font-family: var(--display); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; }
+
+h2 { font-size: clamp(2rem, 4.4vw, 3.25rem); }
+h3 { font-size: 1.3rem; letter-spacing: -0.015em; font-weight: 700; }
+
+p.lede { font-size: clamp(1.05rem, 1.9vw, 1.3rem); color: var(--ink-soft); max-width: 52ch; }
+
+/* --------------------------------------------------------------------------
+   Buttons — pill, echoing WallpadButtonStyle
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--sans); font-weight: 600; font-size: 1rem;
+  padding: 15px 30px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform .18s ease, opacity .18s ease, background .18s ease, box-shadow .18s ease;
+  white-space: nowrap;
+}
+.btn:active { transform: scale(0.98); }
+
+.btn-primary { background: var(--ink); color: var(--paper); box-shadow: 0 10px 30px -12px var(--shadow); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 34px -14px var(--shadow); }
+
+.btn-ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+.btn-ghost:hover { background: var(--line-soft); }
+
+.btn svg { width: 18px; height: 18px; }
+
+/* --------------------------------------------------------------------------
+   Nav
+   -------------------------------------------------------------------------- */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  backdrop-filter: saturate(160%) blur(14px);
+  -webkit-backdrop-filter: saturate(160%) blur(14px);
+  background: color-mix(in srgb, var(--paper) 78%, transparent);
+  border-bottom: 1px solid transparent;
+  transition: border-color .25s ease, background .25s ease;
+}
+.nav.scrolled { border-bottom-color: var(--line); }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+
+.brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: -0.02em; font-family: var(--display); }
+.brand .mark {
+  width: 34px; height: 34px; border-radius: 9px;
+  background: var(--paper-card);
+  display: grid; place-items: center;
+  overflow: hidden;
+  box-shadow: 0 4px 12px -4px var(--shadow);
+}
+.brand .mark img { width: 100%; height: 100%; object-fit: contain; }
+.brand-name { font-size: 1.12rem; }
+
+.nav-links { display: flex; align-items: center; gap: 30px; }
+.nav-links a.link { color: var(--ink-soft); font-size: 0.95rem; font-weight: 500; transition: color .18s ease; }
+.nav-links a.link:hover { color: var(--ink); }
+
+.nav-cta { padding: 10px 22px; font-size: 0.92rem; }
+
+@media (max-width: 760px) {
+  .nav-links a.link { display: none; }
+}
+
+/* --------------------------------------------------------------------------
+   Hero
+   -------------------------------------------------------------------------- */
+.hero { padding: clamp(48px, 8vw, 96px) 0 clamp(40px, 6vw, 80px); text-align: center; }
+
+/* App-icon squircle, mirroring the app's welcome screen */
+.hero-icon {
+  width: clamp(84px, 12vw, 108px);
+  aspect-ratio: 1;
+  margin: 0 auto 30px;
+  border-radius: 24%;
+  background: var(--paper-card);
+  display: grid; place-items: center;
+  overflow: hidden;
+  box-shadow: 0 18px 40px -18px var(--shadow), 0 4px 10px -6px var(--shadow);
+}
+.hero-icon img { width: 100%; height: 100%; object-fit: contain; }
+
+.hero h1 {
+  font-size: clamp(2.7rem, 7vw, 5.4rem);
+  font-weight: 900;
+  max-width: 15ch; margin: 0 auto 24px;
+}
+.hero h1 em { font-style: normal; color: var(--ink-faint); }
+
+.hero .lede { margin: 0 auto 38px; text-align: center; }
+
+.hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+.hero-note { margin-top: 20px; font-size: 0.88rem; color: var(--ink-faint); }
+
+.pill-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.8rem; font-weight: 700; color: var(--ink-soft);
+  background: var(--paper-card);
+  padding: 8px 18px; border-radius: 999px;
+  box-shadow: 0 4px 12px -6px var(--shadow);
+  margin-bottom: 30px;
+}
+.pill-badge .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--ink); opacity: .75; }
+
+/* --------------------------------------------------------------------------
+   Lifestyle shot
+   -------------------------------------------------------------------------- */
+.stage { margin-top: clamp(48px, 7vw, 90px); display: flex; justify-content: center; }
+
+.shot {
+  width: min(760px, 100%);
+  border-radius: 40px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow:
+    0 2px 4px rgba(0,0,0,.06),
+    0 40px 90px -40px var(--shadow);
+  line-height: 0;
+}
+.shot img { width: 100%; height: auto; display: block; }
+
+/* --------------------------------------------------------------------------
+   Logo / trust strip
+   -------------------------------------------------------------------------- */
+.strip { padding: 46px 0; border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); margin-top: clamp(56px, 8vw, 100px); }
+.strip-inner { display: flex; flex-wrap: wrap; gap: 14px 46px; align-items: center; justify-content: center; }
+.strip-item { display: flex; align-items: center; gap: 10px; color: var(--ink-soft); font-size: .95rem; font-weight: 500; }
+.strip-item svg { width: 18px; height: 18px; opacity: .7; }
+
+/* --------------------------------------------------------------------------
+   Section shell
+   -------------------------------------------------------------------------- */
+.band { padding: clamp(72px, 11vw, 130px) 0; }
+.section-head { max-width: 640px; margin-bottom: clamp(40px, 6vw, 68px); }
+.section-head.center { margin-left: auto; margin-right: auto; text-align: center; }
+.section-head p { color: var(--ink-soft); margin-top: 18px; font-size: 1.1rem; }
+
+/* --------------------------------------------------------------------------
+   Feature grid
+   -------------------------------------------------------------------------- */
+.grid { display: grid; gap: 20px; }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+
+.card {
+  background: var(--paper-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 34px 30px;
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+.card:hover { transform: translateY(-4px); box-shadow: 0 24px 48px -30px var(--shadow); border-color: color-mix(in srgb, var(--ink) 22%, transparent); }
+
+.card .ic {
+  width: 48px; height: 48px; border-radius: 13px;
+  display: grid; place-items: center;
+  background: var(--ink); color: var(--paper);
+  margin-bottom: 22px;
+}
+.card .ic svg { width: 24px; height: 24px; }
+.card h3 { margin-bottom: 10px; }
+.card p { color: var(--ink-soft); font-size: 0.98rem; }
+
+@media (max-width: 900px) { .grid-3 { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 620px) { .grid-3, .grid-2 { grid-template-columns: 1fr; } }
+
+/* --------------------------------------------------------------------------
+   Modes — split feature rows
+   -------------------------------------------------------------------------- */
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(36px, 6vw, 80px); align-items: center; }
+.split + .split { margin-top: clamp(56px, 9vw, 110px); }
+.split.reverse .split-media { order: 2; }
+
+.split-copy h2 { font-size: clamp(1.8rem, 3.6vw, 2.7rem); margin-bottom: 18px; }
+.split-copy p { color: var(--ink-soft); font-size: 1.06rem; }
+.split-list { list-style: none; margin-top: 26px; display: flex; flex-direction: column; gap: 14px; }
+.split-list li { display: flex; gap: 13px; align-items: flex-start; font-size: 1rem; }
+.split-list li svg { width: 20px; height: 20px; margin-top: 3px; flex-shrink: 0; color: var(--ink); }
+
+.split-media {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  aspect-ratio: 5 / 4;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 30px 60px -40px var(--shadow);
+}
+.split-media--shot { border-color: transparent; background: #000; }
+.split-media--shot img { width: 100%; height: 100%; object-fit: cover; }
+
+/* mode illustration: always-on / clock screensaver */
+.viz { position: absolute; inset: 0; display: grid; place-items: center; }
+.viz-clock { background: radial-gradient(120% 100% at 50% 0%, #1b2233, #0a0d16); color: #eef1f8; }
+.viz-clock .t { font-family: var(--display); font-size: clamp(3rem, 9vw, 6rem); letter-spacing: -0.02em; }
+.viz-clock .d { color: #9aa4bd; margin-top: 6px; letter-spacing: .04em; }
+.viz-clock .dimwash { position: absolute; inset: 0; background: rgba(0,0,0,.42); }
+
+.viz-motion { background: linear-gradient(150deg, var(--paper-card), var(--paper-deep)); }
+.viz-motion .ring { width: 46%; aspect-ratio: 1; border-radius: 50%; border: 2px solid var(--ink); position: relative; display: grid; place-items: center; }
+.viz-motion .ring::before, .viz-motion .ring::after {
+  content: ""; position: absolute; inset: 0; border-radius: 50%; border: 2px solid var(--ink);
+  animation: pulse 2.6s ease-out infinite;
+}
+.viz-motion .ring::after { animation-delay: 1.3s; }
+.viz-motion .core { width: 40%; aspect-ratio: 1; border-radius: 50%; background: var(--ink); }
+@keyframes pulse { 0% { transform: scale(1); opacity: .6; } 100% { transform: scale(2.1); opacity: 0; } }
+
+.viz-night { background: linear-gradient(160deg, #10131f, #05070d); color: #cfd6e6; }
+.viz-night .moon { width: 34%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #f3efe4, #cbd2e2); box-shadow: 0 0 60px 6px rgba(180,190,220,.25); position: relative; }
+.viz-night .moon::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(circle at 70% 40%, transparent 55%, #10131f 60%); }
+
+@media (max-width: 780px) {
+  .split { grid-template-columns: 1fr; }
+  .split.reverse .split-media { order: 0; }
+}
+
+/* --------------------------------------------------------------------------
+   Privacy band (inverted)
+   -------------------------------------------------------------------------- */
+.invert { background: var(--ink); color: var(--paper); }
+.invert .eyebrow { color: color-mix(in srgb, var(--paper) 60%, transparent); }
+.invert .section-head p { color: color-mix(in srgb, var(--paper) 74%, transparent); }
+.invert .card { background: color-mix(in srgb, var(--paper) 7%, transparent); border-color: color-mix(in srgb, var(--paper) 16%, transparent); }
+.invert .card:hover { border-color: color-mix(in srgb, var(--paper) 32%, transparent); box-shadow: none; }
+.invert .card .ic { background: var(--paper); color: var(--ink); }
+.invert .card p { color: color-mix(in srgb, var(--paper) 74%, transparent); }
+
+/* --------------------------------------------------------------------------
+   Pricing
+   -------------------------------------------------------------------------- */
+.price-wrap { display: flex; justify-content: center; }
+.price-card {
+  width: min(480px, 100%);
+  background: var(--paper-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 48px 40px;
+  text-align: center;
+  box-shadow: 0 40px 80px -50px var(--shadow);
+}
+.price-tag { display: flex; align-items: baseline; justify-content: center; gap: 8px; margin: 8px 0 6px; }
+.price-tag .amt { font-family: var(--display); font-size: 4rem; line-height: 1; }
+.price-tag .cur { font-family: var(--display); font-size: 2rem; align-self: flex-start; margin-top: 6px; }
+.price-once { color: var(--ink-faint); font-size: .95rem; letter-spacing: .02em; }
+.price-sub { color: var(--ink-soft); margin: 20px 0 30px; }
+.price-list { list-style: none; text-align: left; display: flex; flex-direction: column; gap: 13px; margin: 30px 0; }
+.price-list li { display: flex; gap: 12px; align-items: flex-start; font-size: 1rem; }
+.price-list li svg { width: 20px; height: 20px; color: var(--ink); flex-shrink: 0; margin-top: 2px; }
+.price-card .btn { width: 100%; justify-content: center; }
+.price-foot { margin-top: 16px; font-size: .82rem; color: var(--ink-faint); }
+
+/* --------------------------------------------------------------------------
+   FAQ
+   -------------------------------------------------------------------------- */
+.faq { max-width: 760px; margin: 0 auto; }
+.faq details {
+  border-bottom: 1px solid var(--line);
+  padding: 24px 4px;
+}
+.faq details summary {
+  display: flex; justify-content: space-between; align-items: center; gap: 20px;
+  cursor: pointer; list-style: none;
+  font-family: var(--display); font-size: 1.25rem; letter-spacing: -0.01em;
+}
+.faq details summary::-webkit-details-marker { display: none; }
+.faq summary .chev { flex-shrink: 0; width: 22px; height: 22px; transition: transform .25s ease; color: var(--ink-faint); }
+.faq details[open] summary .chev { transform: rotate(45deg); }
+.faq details p { color: var(--ink-soft); margin-top: 14px; font-size: 1rem; max-width: 62ch; }
+
+/* --------------------------------------------------------------------------
+   CTA band
+   -------------------------------------------------------------------------- */
+.cta { text-align: center; }
+.cta h2 { font-size: clamp(2.2rem, 5.5vw, 4rem); max-width: 16ch; margin: 0 auto 22px; }
+.cta p { color: var(--ink-soft); max-width: 46ch; margin: 0 auto 36px; font-size: 1.1rem; }
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+.footer { border-top: 1px solid var(--line); padding: 60px 0 50px; }
+.footer-grid { display: flex; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+.footer-brand { max-width: 300px; }
+.footer-brand p { color: var(--ink-faint); font-size: .92rem; margin-top: 14px; }
+.footer-cols { display: flex; gap: 64px; flex-wrap: wrap; }
+.footer-col h4 { font-size: .74rem; text-transform: uppercase; letter-spacing: .16em; color: var(--ink-faint); margin-bottom: 16px; font-weight: 600; }
+.footer-col a { display: block; color: var(--ink-soft); font-size: .95rem; margin-bottom: 11px; transition: color .18s ease; }
+.footer-col a:hover { color: var(--ink); }
+.footer-bottom { margin-top: 54px; padding-top: 26px; border-top: 1px solid var(--line-soft); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; color: var(--ink-faint); font-size: .85rem; }
+
+/* --------------------------------------------------------------------------
+   Reveal on scroll
+   -------------------------------------------------------------------------- */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  html { scroll-behavior: auto; }
+  .viz-motion .ring::before, .viz-motion .ring::after { animation: none; }
+}
