@@ -3,279 +3,380 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Wallpad · Turn any iPad into a beautiful wall display</title>
-  <meta name="description" content="Wallpad turns any iPad or iPhone into an always-on wall display for dashboards, calendars, photos and smart-home UIs. Private, reliable, and gorgeous." />
 
-  <meta property="og:title" content="Wallpad · Turn any iPad into a beautiful wall display" />
-  <meta property="og:description" content="Mount any web page on your wall. Dashboards, calendars, photos, smart-home. Always-on, private, and reliable." />
+  <!-- ====================================================================
+       LAUNCH SETTING: the App Store link.
+       Paste Hearth's App Store URL between the quotes, for example
+       "https://apps.apple.com/app/hearth/id0000000000".
+       While it is empty, every "Download on the App Store" button on this
+       page stays hidden. This is the only place the link is set.
+       ==================================================================== -->
+  <script>window.HEARTH_APP_STORE_URL = "";</script>
+
+  <title>Hearth · A calm Home Assistant dashboard for iPad and iPhone</title>
+  <meta name="description" content="Hearth is a calm, native Home Assistant dashboard for iPad and iPhone. Connect once and it sets itself up from your rooms and what you actually use." />
+
+  <meta property="og:title" content="Hearth · Your Home Assistant, beautifully simple" />
+  <meta property="og:description" content="A calm, native Home Assistant dashboard for iPad and iPhone that sets itself up." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/icon.png" />
-  <meta name="theme-color" content="#f1ebe1" media="(prefers-color-scheme: light)" />
-  <meta name="theme-color" content="#19180f" media="(prefers-color-scheme: dark)" />
+  <meta property="og:url" content="https://wallpad.app/" />
+  <meta property="og:image" content="https://wallpad.app/assets/media/home-ipad-landscape.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#f5f1e8" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#161513" media="(prefers-color-scheme: dark)" />
 
-  <link rel="icon" type="image/png" href="assets/icon.png" />
-  <link rel="apple-touch-icon" href="assets/icon.png" />
+  <link rel="icon" type="image/svg+xml" href="assets/hearth-mark.svg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="styles.css" />
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- Apple logo, reused by every App Store button. -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="apple" viewBox="0 0 24 24"><path fill="currentColor" d="M16.5 3c.1 1.2-.4 2.3-1.1 3.1-.8.9-2 1.5-3.1 1.4-.1-1.1.4-2.3 1.1-3 .8-.9 2.1-1.5 3.1-1.5zM19 17.3c-.6 1.4-.9 2-1.7 3.2-1.1 1.7-2.7 3.8-4.6 3.8-1.7 0-2.1-1.1-4.4-1.1-2.3 0-2.8 1.1-4.4 1.1-1.9 0-3.4-1.9-4.5-3.6C-.9 16-1.2 10.3 1.4 7.4 2.6 6 4.4 5.1 6.1 5.1c1.8 0 2.9 1.1 4.4 1.1 1.4 0 2.3-1.1 4.4-1.1 1.5 0 3.2.8 4.3 2.3-3.8 2-3.2 7.4-.6 9.9z"/></symbol>
+  </svg>
 
   <header class="nav" id="nav">
     <div class="wrap nav-inner">
-      <a class="brand" href="#top" aria-label="Wallpad home">
-        <span class="mark"><img src="assets/logo.png" alt="" /></span>
-        <span class="brand-name">Wallpad</span>
+      <a class="brand" href="#top" aria-label="Hearth, back to top">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="15" fill="#2a2724"/><path d="M18 50V31a14 14 0 0 1 28 0v19z" fill="#f5f1e8"/><path d="M32 47c-5 0-8-3-8-7 0-5 5-7 6-12 3 3 4 6 3.5 9 1.5-1 2.5-2.5 2.8-4.2C38.6 35 40 37.4 40 40c0 4-3 7-8 7z" fill="#e07b39"/></svg>
+        <span class="brand-name">Hearth</span>
       </a>
       <nav class="nav-links" aria-label="Primary">
-        <a class="link" href="#features">Features</a>
-        <a class="link" href="#modes">Modes</a>
+        <a class="link" href="#setup">Setup</a>
+        <a class="link" href="#home">Home</a>
+        <a class="link" href="#wall">On the wall</a>
         <a class="link" href="#privacy">Privacy</a>
-        <a class="link" href="#pricing">Pricing</a>
-        <a class="btn btn-primary nav-cta" href="#pricing">Get Wallpad</a>
+        <a class="appstore appstore--small" data-app-store hidden>
+          <svg aria-hidden="true"><use href="#apple"/></svg>
+          <span><small>Download on the</small><strong>App Store</strong></span>
+        </a>
       </nav>
     </div>
   </header>
 
-  <main id="top">
+  <main id="main">
 
-    <section class="hero">
+    <!-- Hero -->
+    <section class="hero" id="top">
       <div class="wrap">
-        <div class="hero-icon reveal"><img src="assets/icon.png" alt="Wallpad app icon" /></div>
-        <span class="pill-badge reveal"><span class="dot"></span> Works beautifully with Home Assistant · iPad &amp; iPhone · iOS 16+</span>
-        <h1 class="reveal">Give any web page a <em>place&nbsp;on&nbsp;your&nbsp;wall.</em></h1>
-        <p class="lede reveal">Wallpad turns a spare iPad into an always-on display for the pages you
-          care about: dashboards, calendars, photos, smart-home controls. Mount it,
-          point it at a URL, and let it glow.</p>
-        <div class="hero-actions reveal">
-          <a class="btn btn-primary" href="#pricing">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.5 3c.1 1.2-.4 2.3-1.1 3.1-.8.9-2 1.5-3.1 1.4-.1-1.1.4-2.3 1.1-3 .8-.9 2.1-1.5 3.1-1.5zM19 17.3c-.6 1.4-.9 2-1.7 3.2-1.1 1.7-2.7 3.8-4.6 3.8-1.7 0-2.1-1.1-4.4-1.1-2.3 0-2.8 1.1-4.4 1.1-1.9 0-3.4-1.9-4.5-3.6C-.9 16-1.2 10.3 1.4 7.4 2.6 6 4.4 5.1 6.1 5.1c1.8 0 2.9 1.1 4.4 1.1 1.4 0 2.3-1.1 4.4-1.1 1.5 0 3.2.8 4.3 2.3-3.8 2-3.2 7.4-.6 9.9z"/></svg>
-            Download on the App Store
-          </a>
-          <a class="btn btn-ghost" href="#features">See what it does</a>
+        <div class="hero-copy">
+          <span class="eyebrow reveal">For Home Assistant</span>
+          <h1 class="reveal">Your Home Assistant, <em class="hl">beautifully simple.</em></h1>
+          <p class="lede reveal">Hearth is a calm, native dashboard for iPad and iPhone. Connect once, and it
+            arranges itself from your rooms and the things you actually use.</p>
+          <div class="actions reveal">
+            <a class="appstore" data-app-store hidden>
+              <svg aria-hidden="true"><use href="#apple"/></svg>
+              <span><small>Download on the</small><strong>App Store</strong></span>
+            </a>
+            <a class="btn btn-quiet" href="#tour">Take the tour</a>
+          </div>
+          <p class="platform reveal">For iPad and iPhone with iOS&nbsp;16 or later. Works with your own Home Assistant.</p>
         </div>
-        <p class="hero-note reveal">7-day free trial · then a one-time $9.99 · no subscription</p>
-      </div>
 
-      <div class="wrap">
-        <div class="stage reveal">
-          <figure class="shot">
-            <img src="assets/home.png" alt="Wallpad's welcome screen: the app icon, the Wallpad wordmark, and an Enter a URL button on a soft cream background." loading="lazy" />
+        <div class="hero-stage reveal">
+          <figure class="device">
+            <div class="screen" data-file="home-ipad-landscape.png">
+              <img src="assets/media/home-ipad-landscape.png" width="2360" height="1640"
+                   alt="Hearth's Home page on an iPad in landscape: room tiles, scenes and a music card on warm paper."
+                   fetchpriority="high" onerror="this.parentNode.classList.add('missing')" />
+            </div>
+          </figure>
+          <figure class="device device--phone">
+            <div class="screen" data-file="home-iphone.png">
+              <img src="assets/media/home-iphone.png" width="1179" height="2556" loading="lazy"
+                   alt="The same Home page on an iPhone."
+                   onerror="this.parentNode.classList.add('missing')" />
+            </div>
           </figure>
         </div>
       </div>
     </section>
 
-    <section class="strip">
-      <div class="wrap strip-inner">
-        <span class="strip-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          On-device &amp; private
-        </span>
-        <span class="strip-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg>
-          Runs 24/7
-        </span>
-        <span class="strip-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9"/><path d="M21 3v6h-6"/></svg>
-          Auto-recovers
-        </span>
-        <span class="strip-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-          No subscription
-        </span>
-        <span class="strip-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 3 10v11h6v-6h6v6h6V10z"/></svg>
-          Made for Home Assistant
-        </span>
-        <span class="strip-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v12H4z"/><path d="M2 20h20"/></svg>
-          Works with any web page
-        </span>
+    <!-- Tour video -->
+    <section class="band tour" id="tour" aria-labelledby="tour-title">
+      <div class="wrap">
+        <div class="section-head center reveal">
+          <span class="eyebrow">A short tour</span>
+          <h2 id="tour-title">Calm by default.</h2>
+          <p>No grid to draw and no cards to design. Just your home, in the order you live in it.</p>
+        </div>
+        <figure class="device reveal">
+          <div class="screen" data-file="tour-ipad.mp4">
+            <video width="2360" height="1640" muted loop playsinline preload="none"
+                   poster="assets/media/tour-ipad-poster.png" data-inview
+                   aria-label="A short tour of Hearth on iPad: Home, a room page, the music player and standby.">
+              <source src="assets/media/tour-ipad.mp4" type="video/mp4"
+                      onerror="this.closest('.screen').classList.add('missing')" />
+            </video>
+          </div>
+        </figure>
       </div>
     </section>
 
-    <section class="band" id="features">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <div class="eyebrow">Everything a wall display should be</div>
-          <h2>Built to sit on a wall and never miss a beat.</h2>
-          <p>Most tablets weren't made to stay on forever. Wallpad handles the hard parts,
-            brightness, burn-in, dropped connections, so your display just works, quietly,
-            for months at a time.</p>
+    <!-- Setup -->
+    <section class="band" id="setup" aria-labelledby="setup-title">
+      <div class="wrap split">
+        <div class="split-copy reveal">
+          <span class="eyebrow">Setup</span>
+          <h2 id="setup-title">Ready in a minute.</h2>
+          <p>No YAML, and no layout to plan.</p>
+          <ol class="steps">
+            <li>
+              <div>
+                <h3>Find your home</h3>
+                <p>Hearth looks for Home Assistant on your Wi-Fi. Sign in with your Home Assistant
+                  account, or use any address with an access token.</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <h3>Tap once</h3>
+                <p>You get a page for each of your Home Assistant areas, with what you reach for most
+                  up front. Motion rules, schedules and lights switched as a group don't count as use,
+                  so it follows people, not automations.</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <h3>Or customize first</h3>
+                <p>Two short questions: what you reach for most, and what you want at a glance.</p>
+              </div>
+            </li>
+          </ol>
         </div>
-
-        <div class="grid grid-3">
-          <article class="card reveal">
-            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 3 10v11h6v-6h6v6h6V10z"/></svg></div>
-            <h3>Perfect for Home Assistant</h3>
-            <p>Drop in your Home Assistant dashboard URL and get a gorgeous, always-on wall
-              panel for your smart home. Local network and self-signed certificates just work,
-              no tunnels or workarounds needed.</p>
-          </article>
-
-          <article class="card reveal">
-            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg></div>
-            <h3>Any other web page too</h3>
-            <p>Not just Home Assistant. Point Wallpad at a Grafana board, a shared calendar, a
-              photo slideshow, or any URL. If it runs in a browser, it runs here.</p>
-          </article>
-
-          <article class="card reveal">
-            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M17 7l2.1-2.1M4.9 19.1l2.1-2.1"/></svg></div>
-            <h3>Smart brightness</h3>
-            <p>Wallpad leaves Auto-Brightness alone until it actually needs to dim. Smooth
-              ramps up and down mean no jarring flashes as the room changes.</p>
-          </article>
-
-          <article class="card reveal">
-            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></div>
-            <h3>Night mode</h3>
-            <p>Cap brightness during quiet hours so a bedroom or hallway display never blinds
-              anyone at 3am. Set it once and forget it.</p>
-          </article>
-
-          <article class="card reveal">
-            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9"/><path d="M21 3v6h-6"/></svg></div>
-            <h3>Auto-recovery</h3>
-            <p>Lost Wi-Fi or a server hiccup? Wallpad shows a calm retry screen and reconnects
-              on its own every few seconds, no walking over to poke the screen.</p>
-          </article>
-
-          <article class="card reveal">
-            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
-            <h3>Clock screensaver</h3>
-            <p>When idle, fade to an elegant dimmed clock instead of a bright static page,
-              gentle on the eyes and on the panel.</p>
-          </article>
-
-          <article class="card reveal">
-            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="3"/><path d="M9 6h6"/></svg></div>
-            <h3>Lock it down</h3>
-            <p>Pair with iOS Guided Access or Single App Mode to bolt Wallpad to the screen:
-              no accidental swipes, no wandering out of the app.</p>
-          </article>
-        </div>
+        <figure class="device reveal">
+          <div class="screen" data-file="setup-ipad.png">
+            <img src="assets/media/setup-ipad.png" width="2360" height="1640" loading="lazy"
+                 alt="Hearth's setup screen: Your home is ready, with a Create my dashboard button."
+                 onerror="this.parentNode.classList.add('missing')" />
+          </div>
+        </figure>
       </div>
     </section>
 
-    <section class="band" id="modes" style="padding-top:0;">
+    <!-- Home -->
+    <section class="band" id="home" aria-labelledby="home-title">
       <div class="wrap">
         <div class="section-head reveal">
-          <div class="eyebrow">Two ways to run</div>
-          <h2>On all day, or awake only when you are.</h2>
+          <span class="eyebrow">Home</span>
+          <h2 id="home-title">One quiet page for the whole house.</h2>
+          <p>Cards of the same kind sit together in calm blocks. Things show up when they matter
+            and step aside when they don't.</p>
         </div>
-
-        <div class="split reveal">
-          <div class="split-media split-media--shot">
-            <img src="assets/screensaver.png" alt="Wallpad's dimmed clock screensaver: a soft grey clock reading 14:23 and the date on a black screen." loading="lazy" />
+        <div class="home-layout">
+          <div class="tiles">
+            <article class="tile reveal">
+              <h3>Open now</h3>
+              <p>Doors, windows and gates left open, and for how long. Only there while something is.</p>
+            </article>
+            <article class="tile reveal">
+              <h3>Departures</h3>
+              <p>The next bus, tram or train from any integration that reports one.</p>
+            </article>
+            <article class="tile on reveal">
+              <h3>Rooms</h3>
+              <p>One tile per room. Tap to switch its lights; open it for everything else.</p>
+            </article>
+            <article class="tile reveal">
+              <h3>Scenes</h3>
+              <p>Every whole-home scene, together on one card.</p>
+            </article>
+            <article class="tile reveal">
+              <h3>Buttons</h3>
+              <p>The automations and scripts you run by hand, one tap each.</p>
+            </article>
+            <article class="tile reveal">
+              <h3>Music</h3>
+              <p>What's playing, and where.</p>
+            </article>
           </div>
-          <div class="split-copy">
-            <h2>Always On</h2>
-            <p>Your page stays up around the clock. When nobody's interacting, Wallpad can
-              gently dim, or drift into the clock screensaver, then snap back to full at a tap.</p>
-            <ul class="split-list">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Choose <strong>Dim only</strong> or <strong>Clock + dim</strong> when idle</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Perfect for a mounted kitchen or office dashboard</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Smooth brightness ramps protect the panel</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="split reverse reveal">
-          <div class="split-media">
-            <div class="viz viz-motion">
-              <div class="ring"><div class="core"></div></div>
+          <figure class="device reveal">
+            <div class="screen" data-file="home-ipad-portrait.png">
+              <img src="assets/media/home-ipad-portrait.png" width="1640" height="2360" loading="lazy"
+                   alt="Hearth's Home page on an iPad in portrait, with room tiles grouped in calm blocks."
+                   onerror="this.parentNode.classList.add('missing')" />
             </div>
-          </div>
-          <div class="split-copy">
-            <h2>Wake on Movement</h2>
-            <p>Wallpad uses the front camera to sense motion in the room. Walk up and the
-              display wakes; walk away and it rests. All processing happens on-device, no
-              images ever leave your iPad.</p>
-            <ul class="split-list">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Lightweight on-device motion detection</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Saves power and reduces panel wear</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Nothing is recorded, stored, or uploaded</li>
-            </ul>
-          </div>
+          </figure>
         </div>
       </div>
     </section>
 
-    <section class="band invert" id="privacy">
+    <!-- Rooms -->
+    <section class="band" id="rooms" aria-labelledby="rooms-title">
+      <div class="wrap split flip">
+        <div class="split-copy reveal">
+          <span class="eyebrow">Rooms</span>
+          <h2 id="rooms-title">Every room gets its own page.</h2>
+          <p>Lights glow like the lamps they are. Climate, blinds, locks, cameras and speakers each
+            get a card made for them.</p>
+          <ul class="points">
+            <li><span><strong>Tactile.</strong> Cards press in under your finger, with gentle haptics you
+              can turn off.</span></li>
+            <li><span><strong>Quiet.</strong> A card that's on looks on. No labels to read.</span></li>
+            <li><span><strong>Steady.</strong> Controls stay where your hand expects them.</span></li>
+          </ul>
+        </div>
+        <div class="pair reveal">
+          <figure class="device">
+            <div class="screen" data-file="room-ipad.png">
+              <img src="assets/media/room-ipad.png" width="2360" height="1640" loading="lazy"
+                   alt="A room page in Hearth on iPad: warm lamp cards with brightness sliders, a thermostat and a speaker."
+                   onerror="this.parentNode.classList.add('missing')" />
+            </div>
+          </figure>
+          <figure class="device device--phone">
+            <div class="screen" data-file="rooms-iphone.mp4">
+              <video width="1179" height="2556" muted loop playsinline preload="none" data-inview
+                     aria-label="Swiping between rooms on an iPhone.">
+                <source src="assets/media/rooms-iphone.mp4" type="video/mp4"
+                        onerror="this.closest('.screen').classList.add('missing')" />
+              </video>
+            </div>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Music -->
+    <section class="band" id="music" aria-labelledby="music-title">
+      <div class="wrap split">
+        <div class="split-copy reveal">
+          <span class="eyebrow">Music</span>
+          <h2 id="music-title">Music, full screen.</h2>
+          <p>Open any speaker for big artwork and simple controls.</p>
+          <ul class="points">
+            <li><span><strong>Play on.</strong> Move what's playing to another speaker, using what your
+              speakers already support.</span></li>
+            <li><span><strong>Always close.</strong> A small player follows you around the dashboard.</span></li>
+          </ul>
+        </div>
+        <figure class="device reveal">
+          <div class="screen" data-file="player-ipad.png">
+            <img src="assets/media/player-ipad.png" width="2360" height="1640" loading="lazy"
+                 alt="Hearth's full-screen music player on iPad, with album artwork and a Play on button."
+                 onerror="this.parentNode.classList.add('missing')" />
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <!-- On the wall -->
+    <section class="band wall" id="wall" aria-labelledby="wall-title">
       <div class="wrap">
-        <div class="section-head center reveal">
-          <div class="eyebrow">Privacy by design</div>
-          <h2>What happens on your iPad stays on your iPad.</h2>
-          <p>Wallpad has no account, no analytics dashboard watching you, and no cloud that
-            your data passes through. It shows your page and gets out of the way.</p>
+        <div class="section-head reveal">
+          <span class="eyebrow">On the wall</span>
+          <h2 id="wall-title">Made to live on the wall.</h2>
+          <p>Mount a spare iPad and Hearth becomes the household screen: useful up close, restful from
+            across the room.</p>
         </div>
-        <div class="grid grid-3">
-          <article class="card reveal">
-            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div>
-            <h3>Camera never leaves</h3>
-            <p>Motion detection runs entirely on-device at a low frame rate. Frames are
-              compared and discarded, never saved, never sent anywhere.</p>
-          </article>
-          <article class="card reveal">
-            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4z"/></svg></div>
-            <h3>No account, no tracking</h3>
-            <p>There's nothing to sign up for. Wallpad doesn't build a profile on you or
-              phone home with your browsing.</p>
-          </article>
-          <article class="card reveal">
-            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
-            <h3>Your network, your rules</h3>
-            <p>Works on your local network and even accepts self-signed certificates, so
-              home-lab dashboards load without a hitch.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="band" id="pricing">
-      <div class="wrap">
-        <div class="section-head center reveal">
-          <div class="eyebrow">Simple pricing</div>
-          <h2>Try it free. Buy it once.</h2>
-        </div>
-        <div class="price-wrap reveal">
-          <div class="price-card">
-            <div class="eyebrow" style="margin-bottom:6px;">Wallpad</div>
-            <div class="price-tag"><span class="cur">$</span><span class="amt">9.99</span></div>
-            <div class="price-once">one-time purchase · yours forever</div>
-            <p class="price-sub">Start with a 7-day free trial. When it ends, a single unlock
-              turns Wallpad on for good. No subscription, ever.</p>
-            <ul class="price-list">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Every feature, no tiers or add-ons</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Both display modes &amp; night mode</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Use it on your iPhone and iPad</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Future updates included</li>
-            </ul>
-            <a class="btn btn-primary" href="#">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.5 3c.1 1.2-.4 2.3-1.1 3.1-.8.9-2 1.5-3.1 1.4-.1-1.1.4-2.3 1.1-3 .8-.9 2.1-1.5 3.1-1.5zM19 17.3c-.6 1.4-.9 2-1.7 3.2-1.1 1.7-2.7 3.8-4.6 3.8-1.7 0-2.1-1.1-4.4-1.1-2.3 0-2.8 1.1-4.4 1.1-1.9 0-3.4-1.9-4.5-3.6C-.9 16-1.2 10.3 1.4 7.4 2.6 6 4.4 5.1 6.1 5.1c1.8 0 2.9 1.1 4.4 1.1 1.4 0 2.3-1.1 4.4-1.1 1.5 0 3.2.8 4.3 2.3-3.8 2-3.2 7.4-.6 9.9z"/></svg>
-              Download on the App Store
-            </a>
-            <p class="price-foot">Requires iOS 16 or later. Trial and unlock managed by the App Store.</p>
+        <figure class="device wall-media reveal">
+          <div class="screen" data-file="standby-ipad.png">
+            <img src="assets/media/standby-ipad.png" width="2360" height="1640" loading="lazy"
+                 alt="Hearth's ambient standby on iPad: a large clock and the weather on a dark screen."
+                 onerror="this.parentNode.classList.add('missing')" />
           </div>
+        </figure>
+        <div class="tiles">
+          <article class="tile reveal">
+            <h3>Ambient standby</h3>
+            <p>When nobody's using it, the dashboard fades to a clock, the weather and anything that
+              needs you. Notices are read-only, so a passer-by can't unlock a door.</p>
+          </article>
+          <article class="tile reveal">
+            <h3>Dims when it should</h3>
+            <p>The screen dims after a delay you choose, and night dimming keeps it low during the
+              hours you set.</p>
+          </article>
+          <article class="tile reveal">
+            <h3>Wakes when you're near</h3>
+            <p>A touch wakes it. Or let the front camera notice you walking up; that happens on the
+              iPad, and nothing is stored or sent.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="band cta">
+    <!-- Make it yours -->
+    <section class="band" id="yours" aria-labelledby="yours-title">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Yours</span>
+          <h2 id="yours-title">Opinionated, and still yours.</h2>
+          <p>Hearth takes care of the look, so there's nothing to design. Change what matters to you
+            and skip the rest.</p>
+        </div>
+        <div class="grid-4">
+          <article class="feature reveal">
+            <h3>Edit any card</h3>
+            <p>Long-press to rename, resize or remove it, or let Magic layout tidy a page for you.</p>
+          </article>
+          <article class="feature reveal">
+            <h3>Custom cards</h3>
+            <p>For anything without a card: a name, an icon, one line of text and what a tap does.
+              It looks like every other card.</p>
+          </article>
+          <article class="feature reveal">
+            <h3>Paper, light or dark</h3>
+            <p>Warm paper and ink that follows your device, or stays light or dark.</p>
+          </article>
+          <article class="feature reveal">
+            <h3>More than one dashboard</h3>
+            <p>Keep a few for the same home, like one for the hallway and one for the kitchen.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Privacy -->
+    <section class="band privacy-band" id="privacy" aria-labelledby="privacy-title">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Privacy</span>
+          <h2 id="privacy-title">Between you and your Home Assistant.</h2>
+        </div>
+        <div class="grid-4">
+          <article class="feature reveal">
+            <h3>Straight to your home</h3>
+            <p>Hearth talks directly to your Home Assistant, at home or at your own remote address.
+              No servers in between.</p>
+          </article>
+          <article class="feature reveal">
+            <h3>No account</h3>
+            <p>Nothing to sign up for. Your sign-in stays in the iOS Keychain on your device.</p>
+          </article>
+          <article class="feature reveal">
+            <h3>Camera stays put</h3>
+            <p>Wake on motion is optional and runs on the device. No images are saved or sent.</p>
+          </article>
+          <article class="feature reveal">
+            <h3>No tracking</h3>
+            <p>No analytics, no ads, no trackers.</p>
+          </article>
+        </div>
+        <a class="text-link reveal" href="privacy.html">Read the privacy policy</a>
+      </div>
+    </section>
+
+    <!-- Closing -->
+    <section class="band closing" aria-labelledby="closing-title">
       <div class="wrap reveal">
-        <h2>Put your dashboard on the wall.</h2>
-        <p>Give that old iPad a second life. Beautiful, private, and always on.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.5 3c.1 1.2-.4 2.3-1.1 3.1-.8.9-2 1.5-3.1 1.4-.1-1.1.4-2.3 1.1-3 .8-.9 2.1-1.5 3.1-1.5zM19 17.3c-.6 1.4-.9 2-1.7 3.2-1.1 1.7-2.7 3.8-4.6 3.8-1.7 0-2.1-1.1-4.4-1.1-2.3 0-2.8 1.1-4.4 1.1-1.9 0-3.4-1.9-4.5-3.6C-.9 16-1.2 10.3 1.4 7.4 2.6 6 4.4 5.1 6.1 5.1c1.8 0 2.9 1.1 4.4 1.1 1.4 0 2.3-1.1 4.4-1.1 1.5 0 3.2.8 4.3 2.3-3.8 2-3.2 7.4-.6 9.9z"/></svg>
-            Download on the App Store
+        <h2 id="closing-title">Make yourself <em class="hl">at home.</em></h2>
+        <p class="sub">Connect your Home Assistant and see your home in a minute.</p>
+        <div class="actions">
+          <a class="appstore" data-app-store hidden>
+            <svg aria-hidden="true"><use href="#apple"/></svg>
+            <span><small>Download on the</small><strong>App Store</strong></span>
           </a>
         </div>
+        <p class="platform">For iPad and iPhone with iOS&nbsp;16 or later.</p>
       </div>
     </section>
 
@@ -283,52 +384,70 @@
 
   <footer class="footer">
     <div class="wrap">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a class="brand" href="#top">
-            <span class="mark"><img src="assets/logo.png" alt="" /></span>
-            <span class="brand-name">Wallpad</span>
+      <div class="footer-inner">
+        <div>
+          <a class="brand" href="#top" aria-label="Hearth, back to top">
+            <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="15" fill="#2a2724"/><path d="M18 50V31a14 14 0 0 1 28 0v19z" fill="#f5f1e8"/><path d="M32 47c-5 0-8-3-8-7 0-5 5-7 6-12 3 3 4 6 3.5 9 1.5-1 2.5-2.5 2.8-4.2C38.6 35 40 37.4 40 40c0 4-3 7-8 7z" fill="#e07b39"/></svg>
+            <span class="brand-name">Hearth</span>
           </a>
-          <p>Turn any iPad into a beautiful, always-on wall display for the web pages you
-            care about.</p>
+          <p>A calm Home Assistant dashboard for iPad and iPhone.</p>
         </div>
-        <div class="footer-cols">
-          <div class="footer-col">
-            <h4>Product</h4>
-            <a href="#features">Features</a>
-            <a href="#modes">Modes</a>
-            <a href="#privacy">Privacy</a>
-            <a href="#pricing">Pricing</a>
-          </div>
-          <div class="footer-col">
-            <h4>Support</h4>
-            <a href="mailto:joakimunge@gmail.com?subject=Wallpad%20Support">Contact</a>
-            <a href="privacy.html">Privacy Policy</a>
-          </div>
-          <div class="footer-col">
-            <h4>Get it</h4>
-            <a href="#">App Store</a>
-          </div>
-        </div>
+        <nav class="footer-links" aria-label="Footer">
+          <a href="privacy.html">Privacy policy</a>
+          <a href="mailto:joakimunge@gmail.com?subject=Hearth">Contact</a>
+        </nav>
       </div>
-      <div class="footer-bottom">
-        <span>&copy; <span id="year">2026</span> Wallpad. All rights reserved.</span>
-        <span>Made for people who mount iPads on walls.</span>
-      </div>
+      <p class="fine">&copy; <span id="year">2026</span> Hearth. Hearth is an independent app and is not
+        affiliated with or endorsed by Home Assistant or the Open Home Foundation. Apple, the Apple logo,
+        iPad and iPhone are trademarks of Apple Inc. App Store is a service mark of Apple Inc.</p>
     </div>
   </footer>
 
   <script>
-    // Sticky nav shadow
-    const nav = document.getElementById('nav');
-    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 8);
+    // App Store buttons: shown only once the launch setting at the top holds a real link.
+    (function () {
+      var url = (window.HEARTH_APP_STORE_URL || '').trim();
+      if (!/^https:\/\/apps\.apple\.com\//.test(url)) return;
+      document.querySelectorAll('[data-app-store]').forEach(function (a) {
+        a.href = url;
+        a.setAttribute('aria-label', 'Download Hearth on the App Store');
+        a.hidden = false;
+      });
+    })();
+
+    // Hairline under the nav once the page scrolls.
+    var nav = document.getElementById('nav');
+    var onScroll = function () { nav.classList.toggle('scrolled', window.scrollY > 8); };
     onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
 
-    // Reveal on scroll
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    var calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Gentle reveal on scroll.
+    var reveals = document.querySelectorAll('.reveal');
+    if (calm || !('IntersectionObserver' in window)) {
+      reveals.forEach(function (el) { el.classList.add('in'); });
+    } else {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      reveals.forEach(function (el) { io.observe(el); });
+    }
+
+    // Videos play while on screen and pause off it. With reduced motion they
+    // never start on their own; controls appear instead.
+    var videos = document.querySelectorAll('video[data-inview]');
+    if (calm || !('IntersectionObserver' in window)) {
+      videos.forEach(function (v) { v.controls = true; v.preload = 'metadata'; });
+    } else {
+      var vo = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          var v = e.target;
+          if (e.isIntersecting) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+          else { v.pause(); }
+        });
+      }, { threshold: 0.5 });
+      videos.forEach(function (v) { vo.observe(v); });
+    }
 
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
