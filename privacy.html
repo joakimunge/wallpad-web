@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Privacy Policy · Hearth</title>
-  <meta name="description" content="Hearth's privacy policy. No account, no tracking. Hearth talks only to your own Home Assistant." />
+  <meta name="description" content="Hearth's privacy policy. No account, no analytics, no tracking. Hearth talks directly to your own Home Assistant." />
   <meta name="theme-color" content="#f5f1e8" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#161513" media="(prefers-color-scheme: dark)" />
   <link rel="icon" type="image/svg+xml" href="assets/hearth-mark.svg" />
@@ -33,64 +33,77 @@
       </a>
 
       <h1>Privacy Policy</h1>
-      <p class="updated">Last updated: 15 October 2026</p>
+      <p class="updated">Last updated: 16 October 2026</p>
 
-      <p>Hearth is a dashboard for your own Home Assistant. It has no user accounts, shows no ads
-        and does not track you. This policy explains what the app does and does not do with
-        information about you and your home.</p>
+      <p>Hearth is an iPad and iPhone app that shows and controls your own Home Assistant, or your
+        Apple Home. It has no user accounts, shows no ads and does not track you. This page explains
+        what the app does with information about you and your home.</p>
 
       <h2>The short version</h2>
       <ul>
-        <li>We do not collect, store or receive your personal data. We have no servers that your data passes through.</li>
-        <li>Hearth talks directly to the Home Assistant you connect it to, and nowhere else with your data.</li>
-        <li>There is no account to create and no analytics, advertising or tracking.</li>
-        <li>Camera-based wake on motion is optional, runs entirely on your device, and never stores or sends images.</li>
+        <li>We don’t collect your data. Nothing you do in Hearth is sent to us, and we run no servers that your data passes through.</li>
+        <li>Hearth talks directly to the Home Assistant you connect it to.</li>
+        <li>There is no account to create, and no analytics, advertising or tracking.</li>
+        <li>Wake on motion is optional, runs on the device, and never saves or sends images.</li>
       </ul>
 
       <h2>Your Home Assistant connection</h2>
-      <p>To find your home, Hearth can search your local network for Home Assistant. You can also
-        enter an address yourself, local or remote. When you sign in, your Home Assistant issues
-        the app a sign-in token, which is stored in the iOS Keychain on your device. If you use a
-        long-lived access token instead, it is stored the same way.</p>
-      <p>Hearth reads your home's areas, devices, states and recent history from your Home
-        Assistant, and sends it the commands you give, such as turning on a light. This happens
-        directly between your device and your Home Assistant.</p>
-      <p>Signing in uses a small page on this website (<code>wallpad.app/auth/</code>) only to
-        tell Home Assistant where to return you afterwards. Your credentials and tokens never pass
-        through this website.</p>
+      <p>Hearth can look for Home Assistant on your local network, which is why iOS asks for local
+        network access. You can also type an address yourself, at home or remote.</p>
+      <p>When you sign in with your Home Assistant account, your Home Assistant gives the app a
+        sign-in token. If you use a long-lived access token instead, you paste it into the app.
+        Either way, the token is stored in the iOS Keychain on your device and is sent only to the
+        Home Assistant it belongs to.</p>
+      <p>Hearth reads your areas, devices, their states and recent history from Home Assistant, and
+        sends it the commands you give, such as turning on a light. This goes directly between your
+        device and your Home Assistant.</p>
+      <p>Camera snapshots and album art are loaded from your Home Assistant. Some integrations point
+        to pictures hosted elsewhere, such as album art from a music service; Hearth then loads the
+        picture from that address, as a web browser would.</p>
+
+      <h2>The sign-in page on this website</h2>
+      <p>Before Home Assistant lets an app sign in, it checks where it may send you back afterwards.
+        For Hearth, your Home Assistant reads that from a small public page on this website,
+        <code>wallpad.app/auth/</code>. The page is static and hosted on GitHub Pages.</p>
+      <p>Your password, the sign-in code and your tokens never reach this website. They pass only
+        between the app and your Home Assistant. GitHub, which hosts the site, may log the IP address
+        that requests come from, as web servers do. We run no analytics on this website.</p>
 
       <h2>What stays on your device</h2>
-      <p>Your dashboards, card layouts, local names and settings are saved on your device. To put
-        what you use most up front, Hearth keeps a small on-device tally of how often each device is
-        switched by hand, per day, for up to 60 days. It records counts only, never who switched something. Removing a
-        dashboard deletes its pages and cards from your device.</p>
+      <p>Your dashboards, card layouts, the names you give things in the app, and your settings are
+        saved on your device.</p>
+      <p>To put what you use most up front, Hearth keeps a small tally on the device of how often
+        each device in your home is switched, and at what times of day, for up to 60 days. It
+        records counts, never who switched something.</p>
+      <p>Removing a dashboard deletes its pages and cards from your device. Removing the last
+        dashboard for a Home Assistant also deletes its sign-in token and that tally.</p>
 
       <h2>Apple Home</h2>
-      <p>If you connect Apple Home instead of Home Assistant, Hearth uses Apple's HomeKit framework
-        on your device to show and control your accessories. That information is used only for
-        your dashboard and is not sent anywhere by Hearth.</p>
+      <p>If you connect Apple Home, Hearth uses Apple’s HomeKit framework on your device to show and
+        control your accessories. Hearth uses that information only for your dashboard and does not
+        send it anywhere.</p>
 
       <h2>Camera and wake on motion</h2>
-      <p>If you turn on <strong>wake on motion</strong> for standby, Hearth uses the front camera to
-        notice movement in the room. Each frame is reduced to a coarse grid of brightness values,
-        compared with the previous one and discarded. Hearth does not record, save, upload or share
-        any images or video. The camera runs only while that setting is on; otherwise it is not
-        used at all.</p>
-
-      <h2>Cameras in your home</h2>
-      <p>Camera cards show images and video from your Home Assistant, loaded directly from it. Hearth
-        does not keep recordings.</p>
+      <p>If you set standby to wake on motion, Hearth uses the front camera to notice movement in the
+        room. Each frame is reduced to a coarse grid of brightness values, compared with the previous
+        one, and discarded. Hearth does not record, save, upload or share any images or video. The
+        camera runs only while standby is set to wake on motion; otherwise Hearth does not use it.</p>
 
       <h2>The demo</h2>
-      <p>The demo home uses made-up sample data and is not connected to anything. Its sample camera
-        pictures may be loaded from a public photo service; no information about you or your home is
-        sent.</p>
+      <p>The demo home uses made-up data and is not connected to any home. Its sample camera pictures
+        are fetched from Unsplash, a free photo service. That request contains a search phrase and
+        the app’s own Unsplash key, nothing about you or your home; Unsplash sees your IP address, as
+        any website would. Outside the demo, Hearth does not contact Unsplash.</p>
+
+      <h2>Purchases</h2>
+      <p>Any purchase in Hearth is handled by Apple through the App Store; we never see your payment
+        details.</p>
 
       <h2>Data we collect</h2>
-      <p>None. Hearth includes no third-party analytics, advertising or tracking code, and we
-        operate no servers that receive your data.</p>
+      <p>None. Hearth contains no third-party analytics, advertising or tracking code, and we run no
+        servers that receive your data. There is nothing for us to sell or share.</p>
 
-      <h2>Children's privacy</h2>
+      <h2>Children’s privacy</h2>
       <p>Hearth does not knowingly collect information from anyone, including children.</p>
 
       <h2>Changes to this policy</h2>
