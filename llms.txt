@@ -22,6 +22,7 @@ Key facts:
 - [A Home Assistant dashboard for iPad](https://wallpad.app/guides/home-assistant-dashboard-ipad/): what you need, setup steps, wall-mounting, limits
 - [A Home Assistant dashboard without YAML](https://wallpad.app/guides/home-assistant-dashboard-without-yaml/): how Hearth decides what goes where, and what it won't do
 - [Hearth or a dashboard you build yourself](https://wallpad.app/guides/hearth-vs-lovelace-dashboard/): honest comparison with Home Assistant's own dashboards (Lovelace)
+- [Support](https://wallpad.app/support/): help and common questions
 - [Privacy policy](https://wallpad.app/privacy.html)
 
 ## Optional
