@@ -1,5 +1,9 @@
 # Hearth website media
 
+> **Note (hearth-site-v2):** the redesigned site now uses placeholder screenshots from
+> `assets/screens/` (see `assets/screens/README.md`). This list is the earlier capture spec, kept for
+> the tour video and final-capture sizes.
+
 The site (`index.html`) references these exact files. Until a file exists, the page shows
 a calm placeholder with the file name, so the layout never jumps. Capture everything from
 the app's **demo home** (no real homes, names, places or people). Light Paper appearance

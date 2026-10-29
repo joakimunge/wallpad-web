@@ -1,0 +1,6 @@
+.DS_Store
+.claude/
+.impeccable/questions/
+.impeccable/review/
+.impeccable/mocks/
+.impeccable/build/
