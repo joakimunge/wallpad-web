@@ -80,7 +80,7 @@ where Hearth does something specific and visible for that kind of device.
 | --- | --- | --- | --- | --- |
 | Hearth or a dashboard you build yourself | Should I build a Lovelace/Mushroom dashboard or use Hearth? | `hearth-vs-lovelace-dashboard` | built | yes |
 | Hearth and the Home Assistant Companion app | What's the difference, and do I need both? | `hearth-vs-home-assistant-companion-app` | candidate | yes |
-| Hearth and Apple Home | Should I use Apple Home with HomeKit bridge, or Hearth? | `hearth-vs-apple-home` | candidate | later |
+| Hearth and Apple Home | Should I use Apple Home with HomeKit bridge, or Hearth? (Home Assistant users only; version 1 is marketed for Home Assistant, so no Apple Home support claims) | `hearth-vs-apple-home` | candidate | later |
 | Hearth and browser kiosk setups | Native app vs a kiosk browser on a wall tablet | `hearth-vs-kiosk-browser` | candidate | later |
 
 ## Suggested first ten

@@ -18,6 +18,11 @@
       a.setAttribute('aria-label', 'Download Hearth on the App Store');
       a.hidden = false;
     });
+    // Structured data: the install link comes from the same setting.
+    var ld = document.getElementById('app-ld');
+    if (ld) {
+      try { var data = JSON.parse(ld.textContent); data.installUrl = url; ld.textContent = JSON.stringify(data); } catch (e) {}
+    }
     // The store button becomes the primary action; the setup link steps back.
     document.querySelectorAll('[data-until-store]').forEach(function (b) {
       b.classList.remove('btn-primary'); b.classList.add('btn-quiet');

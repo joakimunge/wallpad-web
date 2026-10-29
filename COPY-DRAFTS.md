@@ -35,11 +35,11 @@ inferred from PRODUCT.md and the screenshots.
 | D27 | Guides heading | Guides | Guides and answers · Read more |
 | D28–D30 | Guide titles and one-line descriptions (also on `/guides/`) | See "Guides" below | |
 | D31 | Closing button (shown while the App Store link is hidden) | Read the iPad guide | See how setup works · Back to the questions |
-| D32 | iPhone music line (old copy reworded: "The Play on button moves…" became "move what's playing to another speaker") | Open any speaker for big artwork and simple controls, and move what's playing to another speaker, using what your speakers already support. | Keep the old line with "Play on" if that's still the button's name. **Fact check:** the current player shows a speaker picker ("Soundbar ▾"); is "Play on" still a thing? |
+| ~~D32~~ | iPhone music line | **Resolved:** back to the original line; the button is still called Play on (owner, 2026-10-29). | |
 | D33 | Privacy detail (old copy plus "in the app or on this site") | …There are no analytics, ads or trackers, in the app or on this site. | Keep the old line unchanged. **Fact check:** true for this site as built (fonts are self-hosted, no third-party requests). |
 | A01–A20 | Alt text for every screenshot | Describes what each screen shows | Review once final screenshots exist; alt text should match the final shots. |
 | D90 | `og:image:alt` | A room in Hearth on iPad: lamp cards glowing in their own light colours, blinds, a speaker and sensors. | Write with the final share image. |
-| D91 | SoftwareApplication JSON-LD | name, alternateName "Hearth · Smart Home Dashboard", description (existing lede), category LifestyleApplication, OS, featureList | **Decide:** App Store category (Lifestyle or Utilities?), whether to add `offers` (price) and `installUrl` at launch, and the feature list wording. |
+| D91 | SoftwareApplication JSON-LD | **Decided (owner, 2026-10-29):** `applicationCategory` LifestyleApplication (App Store primary Lifestyle, secondary Utilities), `offers` price 0 (free), `operatingSystem` "iOS 16 or later, iPadOS 16 or later". `installUrl` is added by `site.js` from `config.js` once the App Store link is set, and is absent until then. Still draft: `alternateName`, `description` and the `featureList` wording. | |
 
 Old copy that is gone from the landing page: "Watch the tour" button (there is no tour video yet),
 the tour section, and the "Setup takes about a minute" heading. The rest of the old copy is kept word
@@ -69,10 +69,12 @@ Every guide is draft from top to bottom (`data-draft="G1"`, `G2`, `G3`, hub `G0`
 6. G3 table: claims about Home Assistant's own dashboards ("can generate a dashboard for you", "visual editor or YAML", "any browser and the companion apps", "kiosk setup"). Kept general on purpose; check the wording is fair.
 7. All pages: "Updated 29 October 2026" dates.
 
-## Not copy, but needs the owner
+## Decided by the owner (2026-10-29)
 
-- The privacy policy (`privacy.html`) says Hearth shows and controls "your own Home Assistant, or your
-  Apple Home". The rest of the site only talks about Home Assistant. Is Apple Home support real? If
-  not, the policy should change (its substance was left untouched here).
-- The Hearth mark still contains a flame; the brand notes say no candles or fire imagery. The app icon
-  is undecided (HEA-94).
+- **Apple Home:** the app has an early Apple Home connection, but version 1 is marketed for Home
+  Assistant only. All marketing copy, guides, FAQ, `llms.txt` and structured data talk about Home
+  Assistant only, with no Apple Home claims. The privacy policy keeps its Apple Home mention, because it
+  must cover everything the app can connect to.
+- **Logo:** keep the current Hearth mark (with the flame) until proper branding is done.
+- **Structured data:** see D91.
+- **Play on:** the music player's button is still called Play on; D32 is back to the original line.

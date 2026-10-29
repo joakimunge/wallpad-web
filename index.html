@@ -30,8 +30,8 @@
   <link rel="preload" href="assets/fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- DRAFT D91: structured data, facts only. Add "installUrl" and "offers" once the App Store link and price are decided. -->
-  <script type="application/ld+json">
+  <!-- DRAFT D91: structured data (category and price decided by the owner). "installUrl" is added by site.js from config.js once the App Store link is set. -->
+  <script type="application/ld+json" id="app-ld">
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
@@ -39,7 +39,7 @@
     "alternateName": "Hearth · Smart Home Dashboard",
     "description": "An iPad and iPhone app for Home Assistant. Sign in, tap once, and each of your areas gets its own page, with the things you use most up front.",
     "applicationCategory": "LifestyleApplication",
-    "operatingSystem": "iOS 16.0 or later, iPadOS 16.0 or later",
+    "operatingSystem": "iOS 16 or later, iPadOS 16 or later",
     "url": "https://wallpad.app/",
     "image": "https://wallpad.app/assets/screens/og-hearth.jpg",
     "screenshot": [
@@ -54,7 +54,8 @@
       "Full-screen music with speaker switching",
       "Standby for a wall-mounted iPad",
       "Light and dark appearance"
-    ]
+    ],
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
   }
   </script>
   <!-- DRAFT D18–D26: the FAQ below, mirrored for search. Keep both in step. -->
@@ -282,8 +283,8 @@
           <h2 id="iphone-title" data-draft="D11">Is there an iPhone version?</h2>
           <p class="answer" data-draft="D12">Yes. The same home fits your phone, with Home, Rooms and Music along
             the bottom and a search for any room, device or scene.</p>
-          <p data-draft="D32">Open any speaker for big artwork and simple controls, and move what’s playing to
-            another speaker, using what your speakers already support.</p>
+          <p>Open any speaker for big artwork and simple controls. The Play on button moves what’s
+            playing to another speaker, using what your speakers already support.</p>
           <p>When you leave the player, a small one stays with you around the dashboard.</p>
         </div>
         <div class="phones">
