@@ -1,0 +1,7 @@
+# Hearth · wallpad.app
+# Everyone, including AI search and answer engines, may read the public pages.
+User-agent: *
+Allow: /
+Disallow: /auth/
+
+Sitemap: https://wallpad.app/sitemap.xml

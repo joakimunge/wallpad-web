@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script>(function(){var d=document.documentElement;d.classList.add('js');try{var q=location.search.match(/[?\&]theme=(light|dark)/);var t=q?q[1]:localStorage.getItem('hearth-theme');if(t==='light'||t==='dark')d.setAttribute('data-theme',t);}catch(e){}})();</script>
+  <script src="/config.js"></script>
+
+  <!-- DRAFT G3: page title and description -->
+  <title>Hearth or a Home Assistant dashboard you build yourself · Hearth</title>
+  <meta name="description" content="An honest comparison of Hearth with Home Assistant's own dashboards (Lovelace): setup, looks, what each can show, wall iPads, and when to use both." />
+  <link rel="canonical" href="https://wallpad.app/guides/hearth-vs-lovelace-dashboard/" />
+
+  <meta property="og:site_name" content="Hearth" />
+  <meta property="og:title" content="Hearth or a Home Assistant dashboard you build yourself · Hearth" />
+  <meta property="og:description" content="An honest comparison of Hearth with Home Assistant's own dashboards (Lovelace): setup, looks, what each can show, wall iPads, and when to use both." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://wallpad.app/guides/hearth-vs-lovelace-dashboard/" />
+  <meta property="og:image" content="https://wallpad.app/assets/screens/og-hearth.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#f4f2ee" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#161513" media="(prefers-color-scheme: dark)" />
+
+  <link rel="icon" type="image/svg+xml" href="/assets/hearth-mark.svg" />
+  <link rel="preload" href="/assets/fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/styles.css" />
+  <!-- DRAFT G3: structured data mirrors this page's questions. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      { "@type": "BreadcrumbList", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Hearth", "item": "https://wallpad.app/" },
+        { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://wallpad.app/guides/" },
+        { "@type": "ListItem", "position": 3, "name": "Hearth or a dashboard you build yourself", "item": "https://wallpad.app/guides/hearth-vs-lovelace-dashboard/" } ] },
+      { "@type": "FAQPage", "mainEntity": [
+        { "@type": "Question", "name": "Is Hearth a Lovelace theme or custom card?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. Hearth is a separate iPad and iPhone app. It talks to Home Assistant directly and draws its own dashboard; nothing is installed in Home Assistant." } },
+        { "@type": "Question", "name": "Will Hearth change my existing Home Assistant dashboards?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. The only thing Hearth writes back is a room for a device that has none, and only when an admin chooses it." } },
+        { "@type": "Question", "name": "Can I make Hearth look like my own dashboard?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. You choose what's on each page and how big each card is; Hearth decides how it looks." } } ] }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="apple" viewBox="0 0 24 24"><path fill="currentColor" d="M16.5 3c.1 1.2-.4 2.3-1.1 3.1-.8.9-2 1.5-3.1 1.4-.1-1.1.4-2.3 1.1-3 .8-.9 2.1-1.5 3.1-1.5zM19 17.3c-.6 1.4-.9 2-1.7 3.2-1.1 1.7-2.7 3.8-4.6 3.8-1.7 0-2.1-1.1-4.4-1.1-2.3 0-2.8 1.1-4.4 1.1-1.9 0-3.4-1.9-4.5-3.6C-.9 16-1.2 10.3 1.4 7.4 2.6 6 4.4 5.1 6.1 5.1c1.8 0 2.9 1.1 4.4 1.1 1.4 0 2.3-1.1 4.4-1.1 1.5 0 3.2.8 4.3 2.3-3.8 2-3.2 7.4-.6 9.9z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></g></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="mark" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#2a2724"/><path d="M18 50V31a14 14 0 0 1 28 0v19z" fill="#f5f1e8"/><path d="M32 47c-5 0-8-3-8-7 0-5 5-7 6-12 3 3 4 6 3.5 9 1.5-1 2.5-2.5 2.8-4.2C38.6 35 40 37.4 40 40c0 4-3 7-8 7z" fill="#e07b39"/></symbol>
+  </svg>
+
+  <header class="nav" id="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="/" aria-label="Hearth, home">
+        <svg aria-hidden="true"><use href="#mark"/></svg>
+        <span class="brand-name">Hearth</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a class="link" href="/#setup">Setup</a>
+        <a class="link" href="/guides/">Guides</a>
+        <a class="link" href="/#privacy">Privacy</a>
+        <div class="appearance" role="group" aria-label="Appearance">
+          <button type="button" value="light" aria-pressed="false"><svg aria-hidden="true"><use href="#i-sun"/></svg><span class="vh">Light</span></button>
+          <button type="button" value="dark" aria-pressed="false"><svg aria-hidden="true"><use href="#i-moon"/></svg><span class="vh">Dark</span></button>
+        </div>
+        <a class="appstore appstore--small" data-app-store hidden>
+          <svg aria-hidden="true"><use href="#apple"/></svg>
+          <span><small>Download on the</small><strong>App Store</strong></span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap doc">
+    <!-- DRAFT G3: this whole guide is draft copy, to be written with the owner. -->
+    <article data-draft="G3">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Hearth</a><span aria-hidden="true">/</span><a href="/guides/">Guides</a></nav>
+      <header class="doc-head">
+        <h1 data-draft="G3-title">Hearth or a dashboard you build yourself</h1>
+        <p class="doc-meta">Updated 29 October 2026 · Compared with Home Assistant’s own dashboards, often called Lovelace</p>
+        <div class="short-answer" data-draft="G3-answer">
+          <p>Build your own Home Assistant dashboard if you want to shape every card and show anything in your
+            system, in any browser. Choose Hearth if you want a calm, finished dashboard on iPad and iPhone
+            without designing or maintaining one.</p>
+          <p>They don’t exclude each other: Hearth doesn’t change your Home Assistant dashboards.</p>
+        </div>
+      </header>
+
+      <div class="doc-body">
+        <nav class="toc" aria-labelledby="toc-title">
+          <h2 id="toc-title">On this page</h2>
+          <ol>
+            <li><a href="#side">Side by side</a></li>
+            <li><a href="#own">When to build your own</a></li>
+            <li><a href="#hearth">When Hearth fits</a></li>
+            <li><a href="#both">Using both</a></li>
+            <li><a href="#faq">Questions</a></li>
+          </ol>
+        </nav>
+
+        <div class="prose">
+          <h2 id="side">Side by side</h2>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr><th scope="col"></th><th scope="col">Your own Home Assistant dashboard</th><th scope="col">Hearth</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">Getting started</th>
+                  <td>Home Assistant can generate a dashboard for you. Making it your own means adding views and cards, in the visual editor or in YAML.</td>
+                  <td>Sign in and tap once. Each area becomes a page, with what you use most up front.</td></tr>
+                <tr><th scope="row">How it looks</th>
+                  <td>Whatever you build: themes, layouts and community cards.</td>
+                  <td>One look, Paper, in light or dark. Lights that are on glow like a lamp.</td></tr>
+                <tr><th scope="row">What it can show</th>
+                  <td>Anything in Home Assistant, including history graphs, maps and settings.</td>
+                  <td>The everyday things: lights, climate, blinds, locks, alarm, media, cameras as snapshots, sensors, departures, appliances, scenes and automations. A custom card covers the rest.</td></tr>
+                <tr><th scope="row">Upkeep</th>
+                  <td>New devices go where you put them.</td>
+                  <td>Pages follow your areas. Set up again rebuilds them when your home changes.</td></tr>
+                <tr><th scope="row">Where it runs</th>
+                  <td>Any browser, and Home Assistant’s companion apps.</td>
+                  <td>A native app for iPad and iPhone, iOS&nbsp;16 or later.</td></tr>
+                <tr><th scope="row">On a wall iPad</th>
+                  <td>Possible, usually with a browser or kiosk setup you configure.</td>
+                  <td>Built in: standby with clock, weather and read-only notices, dimming and night hours.</td></tr>
+                <tr><th scope="row">Changing automations and settings</th>
+                  <td>Yes, it’s Home Assistant.</td>
+                  <td>No. That stays in Home Assistant.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 id="own">When to build your own</h2>
+          <ul>
+            <li>You enjoy designing dashboards and want every card exactly so.</li>
+            <li>You need things Hearth doesn’t show, like history graphs, maps or Home Assistant settings.</li>
+            <li>The screen isn’t an iPad or iPhone.</li>
+          </ul>
+
+          <h2 id="hearth">When Hearth fits</h2>
+          <ul>
+            <li>You never got round to a dashboard you’re happy with, or yours needs fixing every time you add
+              a device.</li>
+            <li>Other people in the house use it and need it to be obvious.</li>
+            <li>You want a wall iPad that looks finished without a kiosk setup.</li>
+          </ul>
+
+          <h2 id="both">Using both</h2>
+          <p>Hearth reads Home Assistant and leaves your dashboards alone, so many setups use both: Hearth on the
+            wall and on everyone’s phones, and a hand-built dashboard for the person who runs Home Assistant.
+            You can also start Hearth from one of your existing dashboards instead of the automatic setup.</p>
+          <figure>
+            <div class="screen">
+              <img class="shot-light" src="/assets/screens/home-ipad-light.webp" width="1200" height="1600" loading="lazy"
+                   alt="Hearth's Home on iPad: an open patio door, departures, a front door camera, today's calendar, what's running, and a warm tile for each room." />
+              <img class="shot-dark" src="/assets/screens/home-ipad-dark.webp" width="1200" height="1726" loading="lazy"
+                   alt="Hearth's Home on iPad in dark appearance." />
+            </div>
+            <figcaption>Hearth’s Home page, made without placing a card.</figcaption>
+          </figure>
+
+          <h2 id="faq">Questions</h2>
+          <div class="faq">
+            <details>
+              <summary>Is Hearth a Lovelace theme or custom card?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+              <div><p>No. Hearth is a separate iPad and iPhone app. It talks to Home Assistant directly and draws
+                its own dashboard; nothing is installed in Home Assistant.</p></div>
+            </details>
+            <details>
+              <summary>Will Hearth change my existing dashboards?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+              <div><p>No. The only thing Hearth writes back is a room for a device that has none, and only when an
+                admin chooses it.</p></div>
+            </details>
+            <details>
+              <summary>Can I make Hearth look like my own dashboard?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+              <div><p>No. You choose what’s on each page and how big each card is; Hearth decides how it looks.</p></div>
+            </details>
+          </div>
+
+          <section class="doc-end" aria-labelledby="end-title">
+            <h2 id="end-title">Try it with your Home Assistant</h2>
+            <p>Sign in, tap once, and your rooms are there.</p>
+            <div class="actions">
+              <a class="appstore" data-app-store hidden>
+                <svg aria-hidden="true"><use href="#apple"/></svg>
+                <span><small>Download on the</small><strong>App Store</strong></span>
+              </a>
+              <a class="btn btn-quiet" href="/guides/home-assistant-dashboard-ipad/">Read the iPad guide</a>
+            </div>
+          </section>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-inner">
+        <div>
+          <a class="brand" href="/" aria-label="Hearth, home">
+            <svg aria-hidden="true"><use href="#mark"/></svg>
+            <span class="brand-name">Hearth</span>
+          </a>
+          <p>A Home Assistant dashboard for iPad and iPhone.</p>
+        </div>
+        <nav class="footer-links" aria-label="Footer">
+          <a href="/guides/">Guides</a>
+          <a href="/privacy.html">Privacy policy</a>
+          <a href="mailto:joakimunge@gmail.com?subject=Hearth">Contact</a>
+        </nav>
+      </div>
+      <p class="fine">&copy; <span id="year">2026</span> Hearth. Hearth is an independent app and is not
+        affiliated with or endorsed by Home Assistant or the Open Home Foundation. Apple, the Apple logo,
+        iPad and iPhone are trademarks of Apple Inc. App Store is a service mark of Apple Inc.</p>
+    </div>
+  </footer>
+
+  <script src="/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script>(function(){var d=document.documentElement;d.classList.add('js');try{var q=location.search.match(/[?\&]theme=(light|dark)/);var t=q?q[1]:localStorage.getItem('hearth-theme');if(t==='light'||t==='dark')d.setAttribute('data-theme',t);}catch(e){}})();</script>
+  <script src="/config.js"></script>
+
+  <!-- DRAFT G1: page title and description -->
+  <title>A Home Assistant dashboard for iPad · Hearth</title>
+  <meta name="description" content="How to get a finished Home Assistant dashboard on iPad with Hearth: what you need, the setup steps, wall-mounting and the limits." />
+  <link rel="canonical" href="https://wallpad.app/guides/home-assistant-dashboard-ipad/" />
+
+  <meta property="og:site_name" content="Hearth" />
+  <meta property="og:title" content="A Home Assistant dashboard for iPad · Hearth" />
+  <meta property="og:description" content="How to get a finished Home Assistant dashboard on iPad with Hearth: what you need, the setup steps, wall-mounting and the limits." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://wallpad.app/guides/home-assistant-dashboard-ipad/" />
+  <meta property="og:image" content="https://wallpad.app/assets/screens/og-hearth.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#f4f2ee" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#161513" media="(prefers-color-scheme: dark)" />
+
+  <link rel="icon" type="image/svg+xml" href="/assets/hearth-mark.svg" />
+  <link rel="preload" href="/assets/fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/styles.css" />
+  <!-- DRAFT G1: structured data mirrors this page's questions. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      { "@type": "BreadcrumbList", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Hearth", "item": "https://wallpad.app/" },
+        { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://wallpad.app/guides/" },
+        { "@type": "ListItem", "position": 3, "name": "A Home Assistant dashboard for iPad", "item": "https://wallpad.app/guides/home-assistant-dashboard-ipad/" } ] },
+      { "@type": "FAQPage", "mainEntity": [
+        { "@type": "Question", "name": "Does Hearth work on an older iPad?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, if it runs iPadOS 16 or later." } },
+        { "@type": "Question", "name": "Does the wall iPad need an admin account?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. Any Home Assistant user works. Things only an admin can do, like moving a device to another room, are only offered to admins." } },
+        { "@type": "Question", "name": "Can two iPads show different dashboards?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. You can keep more than one dashboard for the same home and pick one on each iPad." } } ] }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="apple" viewBox="0 0 24 24"><path fill="currentColor" d="M16.5 3c.1 1.2-.4 2.3-1.1 3.1-.8.9-2 1.5-3.1 1.4-.1-1.1.4-2.3 1.1-3 .8-.9 2.1-1.5 3.1-1.5zM19 17.3c-.6 1.4-.9 2-1.7 3.2-1.1 1.7-2.7 3.8-4.6 3.8-1.7 0-2.1-1.1-4.4-1.1-2.3 0-2.8 1.1-4.4 1.1-1.9 0-3.4-1.9-4.5-3.6C-.9 16-1.2 10.3 1.4 7.4 2.6 6 4.4 5.1 6.1 5.1c1.8 0 2.9 1.1 4.4 1.1 1.4 0 2.3-1.1 4.4-1.1 1.5 0 3.2.8 4.3 2.3-3.8 2-3.2 7.4-.6 9.9z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></g></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="mark" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#2a2724"/><path d="M18 50V31a14 14 0 0 1 28 0v19z" fill="#f5f1e8"/><path d="M32 47c-5 0-8-3-8-7 0-5 5-7 6-12 3 3 4 6 3.5 9 1.5-1 2.5-2.5 2.8-4.2C38.6 35 40 37.4 40 40c0 4-3 7-8 7z" fill="#e07b39"/></symbol>
+  </svg>
+
+  <header class="nav" id="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="/" aria-label="Hearth, home">
+        <svg aria-hidden="true"><use href="#mark"/></svg>
+        <span class="brand-name">Hearth</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a class="link" href="/#setup">Setup</a>
+        <a class="link" href="/guides/">Guides</a>
+        <a class="link" href="/#privacy">Privacy</a>
+        <div class="appearance" role="group" aria-label="Appearance">
+          <button type="button" value="light" aria-pressed="false"><svg aria-hidden="true"><use href="#i-sun"/></svg><span class="vh">Light</span></button>
+          <button type="button" value="dark" aria-pressed="false"><svg aria-hidden="true"><use href="#i-moon"/></svg><span class="vh">Dark</span></button>
+        </div>
+        <a class="appstore appstore--small" data-app-store hidden>
+          <svg aria-hidden="true"><use href="#apple"/></svg>
+          <span><small>Download on the</small><strong>App Store</strong></span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap doc">
+    <!-- DRAFT G1: this whole guide is draft copy, to be written with the owner. -->
+    <article data-draft="G1">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Hearth</a><span aria-hidden="true">/</span><a href="/guides/">Guides</a></nav>
+      <header class="doc-head">
+        <h1 data-draft="G1-title">A Home Assistant dashboard for iPad</h1>
+        <p class="doc-meta">Updated 29 October 2026 · For iPadOS&nbsp;16 or later</p>
+        <div class="short-answer" data-draft="G1-answer">
+          <p>Hearth is an iPad app that turns your Home Assistant into a finished dashboard. Install it,
+            sign in to your Home Assistant, tap once, and each of your areas gets its own page.</p>
+          <p>It runs on any iPad with iPadOS&nbsp;16 or later, so a spare older iPad on the wall works too.</p>
+        </div>
+      </header>
+
+      <div class="doc-body">
+        <nav class="toc" aria-labelledby="toc-title">
+          <h2 id="toc-title">On this page</h2>
+          <ol>
+            <li><a href="#need">What you need</a></li>
+            <li><a href="#steps">Set it up</a></li>
+            <li><a href="#get">What you get</a></li>
+            <li><a href="#wall">On the wall</a></li>
+            <li><a href="#limits">Limits</a></li>
+            <li><a href="#faq">Questions</a></li>
+          </ol>
+        </nav>
+
+        <div class="prose">
+          <h2 id="need">What you need</h2>
+          <ul>
+            <li>An iPad with iPadOS&nbsp;16 or later.</li>
+            <li>Home Assistant running at home, on the same network as the iPad, or reachable at your
+              own remote address.</li>
+            <li>A Home Assistant user to sign in with. It doesn’t have to be an admin. You can also use an
+              address and a long-lived access token.</li>
+            <li>Areas in Home Assistant. Hearth makes one page per area, so the better your areas, the
+              better your pages.</li>
+          </ul>
+
+          <h2 id="steps">Set it up</h2>
+          <ol class="how">
+            <li>Install Hearth from the App Store and open it.</li>
+            <li>Hearth looks for Home Assistant on your Wi-Fi. Pick yours, or enter its address.</li>
+            <li>Sign in with your Home Assistant account, or use an access token instead.</li>
+            <li>Tap <strong>Create my dashboard</strong>. If you’d rather choose, answer two short questions
+              first: what you reach for most, and what you want to see at a glance.</li>
+            <li>That’s it. To change a page later, long-press any card.</li>
+          </ol>
+          <figure>
+            <div class="screen">
+              <img src="/assets/screens/setup-signin-ipad-light.webp" width="1200" height="804" loading="lazy"
+                   alt="Hearth on iPad after finding Home Assistant on the network: There's your home, with a Sign in with Home Assistant button, and options to use an access token or enter an address." />
+            </div>
+            <figcaption>Hearth finds Home Assistant on your network. Sign in once.</figcaption>
+          </figure>
+
+          <h2 id="get">What you get</h2>
+          <p>Home is the page you’ll see most: doors and windows left open, the next departures, a tile for
+            each room, your scenes, the automations you run by hand, and what’s playing. Each room has its
+            own page with every device you can control, the ones you use most first.</p>
+          <p>A light that’s on glows like a lamp, so there’s no On or Off to read. Climate, blinds, locks,
+            cameras and speakers each get a card made for them.</p>
+          <figure>
+            <div class="screen">
+              <img class="shot-light" src="/assets/screens/home-ipad-light.webp" width="1200" height="1600" loading="lazy"
+                   alt="Hearth's Home on iPad: an open patio door, departures, a front door camera, today's calendar, what's running, and a warm tile for each room." />
+              <img class="shot-dark" src="/assets/screens/home-ipad-dark.webp" width="1200" height="1726" loading="lazy"
+                   alt="Hearth's Home on iPad in dark appearance." />
+            </div>
+            <figcaption>Home on iPad, from the demo home.</figcaption>
+          </figure>
+
+          <h2 id="wall">On the wall</h2>
+          <p>Put a spare iPad where everyone passes and it becomes the household screen.</p>
+          <ul>
+            <li>When nobody’s using it, the dashboard fades to a clock, the weather and anything that needs
+              attention. Those notices are read-only, so someone walking past can’t unlock a door.</li>
+            <li>The screen dims after a delay you choose and stays low at night, during hours you set.</li>
+            <li>A touch wakes it, or the front camera can when someone walks up. That runs on the iPad, and
+              nothing is saved or sent.</li>
+            <li>You can make a separate dashboard for the wall, say one for the hallway and one for the
+              kitchen.</li>
+            <li>To keep the iPad in Hearth, use iPadOS’s own Guided Access (Settings, Accessibility, Guided
+              Access).</li>
+          </ul>
+
+          <h2 id="limits">Limits</h2>
+          <ul>
+            <li>Hearth is a dashboard, not a replacement for Home Assistant. Devices, integrations and
+              automations stay in Home Assistant.</li>
+            <li>iPadOS pauses apps in the background. Hearth is up to date while it’s open, and it isn’t an
+              alarm or monitoring app.</li>
+            <li>Camera cards show snapshots that refresh, not live video.</li>
+            <li>Hearth decides how things look. You choose what’s on each page and how big each card is,
+              not its colours or fonts.</li>
+          </ul>
+
+          <h2 id="faq">Questions</h2>
+          <div class="faq">
+            <details>
+              <summary>Does Hearth work on an older iPad?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+              <div><p>Yes, if it runs iPadOS&nbsp;16 or later.</p></div>
+            </details>
+            <details>
+              <summary>Does the wall iPad need an admin account?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+              <div><p>No. Any Home Assistant user works. Things only an admin can do, like moving a device to
+                another room, are only offered to admins.</p></div>
+            </details>
+            <details>
+              <summary>Can two iPads show different dashboards?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+              <div><p>Yes. You can keep more than one dashboard for the same home and pick one on each iPad.</p></div>
+            </details>
+          </div>
+
+          <section class="doc-end" aria-labelledby="end-title">
+            <h2 id="end-title">Try it with your Home Assistant</h2>
+            <p>Sign in, tap once, and your rooms are there.</p>
+            <div class="actions">
+              <a class="appstore" data-app-store hidden>
+                <svg aria-hidden="true"><use href="#apple"/></svg>
+                <span><small>Download on the</small><strong>App Store</strong></span>
+              </a>
+              <a class="btn btn-quiet" href="/guides/home-assistant-dashboard-without-yaml/">Next: a dashboard without YAML</a>
+            </div>
+          </section>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-inner">
+        <div>
+          <a class="brand" href="/" aria-label="Hearth, home">
+            <svg aria-hidden="true"><use href="#mark"/></svg>
+            <span class="brand-name">Hearth</span>
+          </a>
+          <p>A Home Assistant dashboard for iPad and iPhone.</p>
+        </div>
+        <nav class="footer-links" aria-label="Footer">
+          <a href="/guides/">Guides</a>
+          <a href="/privacy.html">Privacy policy</a>
+          <a href="mailto:joakimunge@gmail.com?subject=Hearth">Contact</a>
+        </nav>
+      </div>
+      <p class="fine">&copy; <span id="year">2026</span> Hearth. Hearth is an independent app and is not
+        affiliated with or endorsed by Home Assistant or the Open Home Foundation. Apple, the Apple logo,
+        iPad and iPhone are trademarks of Apple Inc. App Store is a service mark of Apple Inc.</p>
+    </div>
+  </footer>
+
+  <script src="/site.js"></script>
+</body>
+</html>
