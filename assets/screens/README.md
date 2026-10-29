@@ -9,6 +9,11 @@ WebP (quality 82). Each file has a `.json` sidecar with its origin (written by `
 embed-prompt`). Pairs ending `-light` / `-dark` swap with the page's appearance; a file without a
 pair shows in both.
 
+**Known mismatch:** the iPhone placeholders (`home-phone`, `lamps-phone`, `rooms-phone`) still show
+the old Home · Rooms · Music tab bar. The current app has Home, Rooms and a Search button, with music
+in a mini player on every tab; final shots must show that. Alt text was written for these
+placeholders and must be revisited with the final shots.
+
 When replacing: keep the file name and update the `width`/`height` attributes where the file is used
 if the size changes. Capture from the demo home only (no real homes, names or places). Status bar
 times should match within a pair and ideally across the page.

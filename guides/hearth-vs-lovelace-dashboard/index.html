@@ -6,7 +6,6 @@
   <script>(function(){var d=document.documentElement;d.classList.add('js');try{var q=location.search.match(/[?\&]theme=(light|dark)/);var t=q?q[1]:localStorage.getItem('hearth-theme');if(t==='light'||t==='dark')d.setAttribute('data-theme',t);}catch(e){}})();</script>
   <script src="/config.js"></script>
 
-  <!-- DRAFT G3: page title and description -->
   <title>Hearth or a Home Assistant dashboard you build yourself · Hearth</title>
   <meta name="description" content="An honest comparison of Hearth with Home Assistant's own dashboards (Lovelace): setup, looks, what each can show, wall iPads, and when to use both." />
   <link rel="canonical" href="https://wallpad.app/guides/hearth-vs-lovelace-dashboard/" />
@@ -24,7 +23,7 @@
   <link rel="icon" type="image/svg+xml" href="/assets/hearth-mark.svg" />
   <link rel="preload" href="/assets/fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/styles.css" />
-  <!-- DRAFT G3: structured data mirrors this page's questions. -->
+  <!-- Structured data mirrors this page's questions. Keep both in step. -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -37,7 +36,7 @@
         { "@type": "Question", "name": "Is Hearth a Lovelace theme or custom card?",
           "acceptedAnswer": { "@type": "Answer", "text": "No. Hearth is a separate iPad and iPhone app. It talks to Home Assistant directly and draws its own dashboard; nothing is installed in Home Assistant." } },
         { "@type": "Question", "name": "Will Hearth change my existing Home Assistant dashboards?",
-          "acceptedAnswer": { "@type": "Answer", "text": "No. The only thing Hearth writes back is a room for a device that has none, and only when an admin chooses it." } },
+          "acceptedAnswer": { "@type": "Answer", "text": "No. Apart from controlling your devices, the only change Hearth makes in Home Assistant is giving a room to a device that has none, and only when an admin chooses it." } },
         { "@type": "Question", "name": "Can I make Hearth look like my own dashboard?",
           "acceptedAnswer": { "@type": "Answer", "text": "No. You choose what's on each page and how big each card is; Hearth decides how it looks." } } ] }
     ]
@@ -63,7 +62,7 @@
         <span class="brand-name">Hearth</span>
       </a>
       <nav class="nav-links" aria-label="Primary">
-        <a class="link" href="/#setup">Setup</a>
+        <a class="link" href="/#setup">How it works</a>
         <a class="link" href="/guides/">Guides</a>
         <a class="link" href="/#privacy">Privacy</a>
         <div class="appearance" role="group" aria-label="Appearance">
@@ -79,13 +78,12 @@
   </header>
 
   <main id="main" class="wrap doc">
-    <!-- DRAFT G3: this whole guide is draft copy, to be written with the owner. -->
-    <article data-draft="G3">
+    <article>
       <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Hearth</a><span aria-hidden="true">/</span><a href="/guides/">Guides</a></nav>
       <header class="doc-head">
-        <h1 data-draft="G3-title">Hearth or a dashboard you build yourself</h1>
+        <h1>Hearth or a dashboard you build yourself</h1>
         <p class="doc-meta">Updated 29 October 2026 · Compared with Home Assistant’s own dashboards, often called Lovelace</p>
-        <div class="short-answer" data-draft="G3-answer">
+        <div class="short-answer">
           <p>Build your own Home Assistant dashboard if you want to shape every card and show anything in your
             system, in any browser. Choose Hearth if you want a calm, finished dashboard on iPad and iPhone
             without designing or maintaining one.</p>
@@ -129,7 +127,7 @@
                   <td>Any browser, and Home Assistant’s companion apps.</td>
                   <td>A native app for iPad and iPhone, iOS&nbsp;16 or later.</td></tr>
                 <tr><th scope="row">On a wall iPad</th>
-                  <td>Possible, usually with a browser or kiosk setup you configure.</td>
+                  <td>Possible, though a kiosk setup usually needs extra tools, such as a kiosk browser app.</td>
                   <td>Built in: standby with clock, weather and read-only notices, dimming and night hours.</td></tr>
                 <tr><th scope="row">Changing automations and settings</th>
                   <td>Yes, it’s Home Assistant.</td>
@@ -176,8 +174,8 @@
             </details>
             <details>
               <summary>Will Hearth change my existing dashboards?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
-              <div><p>No. The only thing Hearth writes back is a room for a device that has none, and only when an
-                admin chooses it.</p></div>
+              <div><p>No. Apart from controlling your devices, the only change Hearth makes in Home Assistant
+                is giving a room to a device that has none, and only when an admin chooses it.</p></div>
             </details>
             <details>
               <summary>Can I make Hearth look like my own dashboard?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary>

@@ -13,8 +13,7 @@
   <script>(function(){var d=document.documentElement;d.classList.add('js');try{var q=location.search.match(/[?\&]theme=(light|dark)/);var t=q?q[1]:localStorage.getItem('hearth-theme');if(t==='light'||t==='dark')d.setAttribute('data-theme',t);}catch(e){}})();</script>
   <script src="/config.js"></script>
 
-  <!-- DRAFT {{DRAFT}}: page title and description -->
-  <title>{{TITLE}}</title>
+    <title>{{TITLE}}</title>
   <meta name="description" content="{{DESC}}" />
   <link rel="canonical" href="https://wallpad.app{{PATH}}" />
 
@@ -52,7 +51,7 @@
         <span class="brand-name">Hearth</span>
       </a>
       <nav class="nav-links" aria-label="Primary">
-        <a class="link" href="/#setup">Setup</a>
+        <a class="link" href="/#setup">How it works</a>
         <a class="link" href="/guides/">Guides</a>
         <a class="link" href="/#privacy">Privacy</a>
         <div class="appearance" role="group" aria-label="Appearance">
@@ -68,13 +67,12 @@
   </header>
 
   <main id="main" class="wrap doc">
-    <!-- DRAFT G1: this whole guide is draft copy, to be written with the owner. -->
-    <article data-draft="G1">
+    <article>
       <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Hearth</a><span aria-hidden="true">/</span><a href="/guides/">Guides</a></nav>
       <header class="doc-head">
-        <h1 data-draft="G1-title">A Home Assistant dashboard for iPad</h1>
+        <h1>A Home Assistant dashboard for iPad</h1>
         <p class="doc-meta">Updated 29 October 2026 · For iPadOS&nbsp;16 or later</p>
-        <div class="short-answer" data-draft="G1-answer">
+        <div class="short-answer">
           <p>Hearth is an iPad app that turns your Home Assistant into a finished dashboard. Install it,
             sign in to your Home Assistant, tap once, and each of your areas gets its own page.</p>
           <p>It runs on any iPad with iPadOS&nbsp;16 or later, so a spare older iPad on the wall works too.</p>
@@ -149,8 +147,8 @@
               nothing is saved or sent.</li>
             <li>You can make a separate dashboard for the wall, say one for the hallway and one for the
               kitchen.</li>
-            <li>To keep the iPad in Hearth, use iPadOS’s own Guided Access (Settings, Accessibility, Guided
-              Access).</li>
+            <li>Optionally, lock the iPad to Hearth with Guided Access, an iPadOS feature (Settings,
+              Accessibility, Guided Access).</li>
           </ul>
 
           <h2 id="limits">Limits</h2>
@@ -177,7 +175,7 @@
             </details>
             <details>
               <summary>Can two iPads show different dashboards?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
-              <div><p>Yes. You can keep more than one dashboard for the same home and pick one on each iPad.</p></div>
+              <div><p>Yes. You can keep more than one dashboard for the same home, and each iPad or iPhone picks its own.</p></div>
             </details>
           </div>
 

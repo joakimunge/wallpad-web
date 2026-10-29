@@ -6,7 +6,6 @@
   <script>(function(){var d=document.documentElement;d.classList.add('js');try{var q=location.search.match(/[?\&]theme=(light|dark)/);var t=q?q[1]:localStorage.getItem('hearth-theme');if(t==='light'||t==='dark')d.setAttribute('data-theme',t);}catch(e){}})();</script>
   <script src="/config.js"></script>
 
-  <!-- DRAFT G2: page title and description -->
   <title>A Home Assistant dashboard without YAML · Hearth</title>
   <meta name="description" content="Hearth builds your Home Assistant dashboard from your areas and real use, with no YAML and no cards to place. How it decides, and what it won't do." />
   <link rel="canonical" href="https://wallpad.app/guides/home-assistant-dashboard-without-yaml/" />
@@ -24,7 +23,7 @@
   <link rel="icon" type="image/svg+xml" href="/assets/hearth-mark.svg" />
   <link rel="preload" href="/assets/fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/styles.css" />
-  <!-- DRAFT G2: structured data mirrors this page's questions. -->
+  <!-- Structured data mirrors this page's questions. Keep both in step. -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -70,7 +69,7 @@
         <span class="brand-name">Hearth</span>
       </a>
       <nav class="nav-links" aria-label="Primary">
-        <a class="link" href="/#setup">Setup</a>
+        <a class="link" href="/#setup">How it works</a>
         <a class="link" href="/guides/">Guides</a>
         <a class="link" href="/#privacy">Privacy</a>
         <div class="appearance" role="group" aria-label="Appearance">
@@ -86,13 +85,12 @@
   </header>
 
   <main id="main" class="wrap doc">
-    <!-- DRAFT G2: this whole guide is draft copy, to be written with the owner. -->
-    <article data-draft="G2">
+    <article>
       <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Hearth</a><span aria-hidden="true">/</span><a href="/guides/">Guides</a></nav>
       <header class="doc-head">
-        <h1 data-draft="G2-title">A Home Assistant dashboard without YAML</h1>
+        <h1>A Home Assistant dashboard without YAML</h1>
         <p class="doc-meta">Updated 29 October 2026 · iPad and iPhone</p>
-        <div class="short-answer" data-draft="G2-answer">
+        <div class="short-answer">
           <p>You don’t need YAML, or to place a single card. Hearth reads your Home Assistant’s areas,
             devices and how you use them, and builds the dashboard itself on iPad and iPhone.</p>
           <p>You can still rename, resize or remove anything afterwards.</p>
@@ -144,7 +142,8 @@
             <li><strong>Give devices friendly names.</strong> Hearth shows the names Home Assistant has. You can
               also rename a card in Hearth without touching Home Assistant.</li>
             <li><strong>Place leftovers from Hearth.</strong> If you’re an admin, Hearth shows devices without a
-              room and lets you put them in one. That change is saved in Home Assistant too.</li>
+              room and lets you put them in one. Apart from controlling your devices, that is the only change
+              Hearth makes in Home Assistant.</li>
           </ul>
 
           <h2 id="change">What you can still change</h2>

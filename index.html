@@ -20,7 +20,6 @@
   <meta property="og:image" content="https://wallpad.app/assets/screens/og-hearth.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <!-- DRAFT D90 -->
   <meta property="og:image:alt" content="A room in Hearth on iPad: lamp cards glowing in their own light colours, blinds, a speaker and sensors." />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#f4f2ee" media="(prefers-color-scheme: light)" />
@@ -30,7 +29,7 @@
   <link rel="preload" href="assets/fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- DRAFT D91: structured data (category and price decided by the owner). "installUrl" is added by site.js from config.js once the App Store link is set. -->
+  <!-- Structured data. "installUrl" is added by site.js from config.js once the App Store link is set. -->
   <script type="application/ld+json" id="app-ld">
   {
     "@context": "https://schema.org",
@@ -58,7 +57,7 @@
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
   }
   </script>
-  <!-- DRAFT D18–D26: the FAQ below, mirrored for search. Keep both in step. -->
+  <!-- The FAQ below, mirrored for search. Keep both in step. -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -76,12 +75,8 @@
         "acceptedAnswer": { "@type": "Answer", "text": "Yes, when your Home Assistant is reachable from outside your home, at your own remote address. Hearth connects to the address you give it." } },
       { "@type": "Question", "name": "Can everyone in the household use it?",
         "acceptedAnswer": { "@type": "Answer", "text": "Yes. Each person can sign in with their own Home Assistant user, and it doesn't have to be an admin. Things only an admin can do, like moving a device to another room, are only offered to admins." } },
-      { "@type": "Question", "name": "What happens to my existing Home Assistant dashboards?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Nothing. Hearth doesn't change your Home Assistant dashboards. You can also start from one of them instead of the automatic setup." } },
       { "@type": "Question", "name": "Does Hearth show live camera video?",
-        "acceptedAnswer": { "@type": "Answer", "text": "No. Camera cards show snapshots that refresh, not live video." } },
-      { "@type": "Question", "name": "Can Hearth alert me when something happens?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Hearth is not an alarm or monitoring app. It shows what needs attention while it's open, but iOS pauses apps in the background, so use Home Assistant's own notifications for alerts." } }
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Camera cards show snapshots that refresh, not live video." } }
     ]
   }
   </script>
@@ -112,8 +107,8 @@
         <span class="brand-name">Hearth</span>
       </a>
       <nav class="nav-links" aria-label="Primary">
-        <a class="link" href="#setup" data-draft="D01">Setup</a>
-        <a class="link" href="guides/" data-draft="D02">Guides</a>
+        <a class="link" href="#setup">How it works</a>
+        <a class="link" href="guides/">Guides</a>
         <a class="link" href="#privacy">Privacy</a>
         <div class="appearance" role="group" aria-label="Appearance">
           <button type="button" value="light" aria-pressed="false"><svg aria-hidden="true"><use href="#i-sun"/></svg><span class="vh">Light</span></button>
@@ -139,36 +134,36 @@
             <svg aria-hidden="true"><use href="#apple"/></svg>
             <span><small>Download on the</small><strong>App Store</strong></span>
           </a>
-          <a class="btn btn-primary" href="#setup" data-until-store data-draft="D03">How setup works</a>
+          <a class="btn btn-primary" href="#setup" data-until-store>How setup works</a>
         </div>
         <p class="platform">Needs iOS&nbsp;16 or later and your own Home Assistant.</p>
 
         <div class="stage">
           <figure class="screen">
             <img class="shot-light" src="assets/screens/room-ipad-light.webp" width="1600" height="1240" fetchpriority="high"
-                 alt="A living room in Hearth on iPad: a floor lamp glowing teal, a ceiling light warm amber and a TV backlight violet, with blinds, a speaker, motion, temperature and humidity." data-draft="A01" />
+                 alt="A living room in Hearth on iPad: a floor lamp glowing teal, a ceiling light warm amber and a TV backlight violet, with blinds, a speaker, motion, temperature and humidity." />
             <img class="shot-dark" src="assets/screens/room-ipad-dark.webp" width="1600" height="1240"
-                 alt="The same living room in Hearth's dark appearance, lamps glowing in their own colours." data-draft="A02" />
+                 alt="The same living room in Hearth's dark appearance, lamps glowing in their own colours." />
           </figure>
           <figure class="screen screen--phone">
             <img class="shot-light" src="assets/screens/home-phone-light.webp" width="720" height="1564"
-                 alt="Hearth's Home on iPhone: a tile for each room, rooms with lights on in warm amber." data-draft="A03" />
+                 alt="Hearth's Home on iPhone: an open patio door, the next ferry and tram, and a front door camera." />
             <img class="shot-dark" src="assets/screens/home-phone-dark.webp" width="720" height="1564"
-                 alt="Hearth's Home on iPhone in dark appearance: an open patio door, the next ferry and tram, and a front door camera." data-draft="A04" />
+                 alt="The same Home on iPhone in dark appearance." />
           </figure>
         </div>
 
         <nav class="questions" aria-labelledby="q-title">
-          <h2 id="q-title" data-draft="D04">What people ask first</h2>
+          <h2 id="q-title">Jump to</h2>
           <ul class="chips">
-            <li><a href="#setup" data-draft="D05"><svg aria-hidden="true"><use href="#i-spark"/></svg>How does setup work?</a></li>
-            <li><a href="#home" data-draft="D05"><svg aria-hidden="true"><use href="#i-home"/></svg>What’s on the Home page?</a></li>
-            <li><a href="#lights" data-draft="D05"><svg aria-hidden="true"><use href="#i-bulb"/></svg>How do lights look?</a></li>
-            <li><a href="#iphone" data-draft="D05"><svg aria-hidden="true"><use href="#i-phone"/></svg>Is there an iPhone version?</a></li>
-            <li><a href="#wall" data-draft="D05"><svg aria-hidden="true"><use href="#i-tablet"/></svg>Can it go on a wall?</a></li>
-            <li><a href="#change" data-draft="D05"><svg aria-hidden="true"><use href="#i-sliders"/></svg>What can I change?</a></li>
-            <li><a href="#privacy" data-draft="D05"><svg aria-hidden="true"><use href="#i-lock"/></svg>Where does my data go?</a></li>
-            <li><a href="#faq" data-draft="D05"><svg aria-hidden="true"><use href="#i-plus"/></svg>More questions</a></li>
+            <li><a href="#setup"><svg aria-hidden="true"><use href="#i-spark"/></svg>Setup</a></li>
+            <li><a href="#home"><svg aria-hidden="true"><use href="#i-home"/></svg>Home</a></li>
+            <li><a href="#lights"><svg aria-hidden="true"><use href="#i-bulb"/></svg>Lights</a></li>
+            <li><a href="#iphone"><svg aria-hidden="true"><use href="#i-phone"/></svg>iPhone</a></li>
+            <li><a href="#wall"><svg aria-hidden="true"><use href="#i-tablet"/></svg>On the wall</a></li>
+            <li><a href="#change"><svg aria-hidden="true"><use href="#i-sliders"/></svg>Changes</a></li>
+            <li><a href="#privacy"><svg aria-hidden="true"><use href="#i-lock"/></svg>Privacy</a></li>
+            <li><a href="#faq"><svg aria-hidden="true"><use href="#i-plus"/></svg>FAQ</a></li>
           </ul>
         </nav>
       </div>
@@ -178,9 +173,9 @@
     <section class="qa" id="setup" aria-labelledby="setup-title">
       <div class="wrap">
         <div class="qa-head">
-          <h2 id="setup-title" data-draft="D06">How does setup work?</h2>
-          <p class="answer" data-draft="D07">Sign in to your Home Assistant and tap once. Hearth builds the dashboard
-            from your areas, so there’s no YAML and no layout to plan.</p>
+          <h2 id="setup-title">Setup takes about a minute</h2>
+          <p class="answer">Sign in, tap once, and every area has its page. No YAML, no layout to
+            plan.</p>
           <p>Hearth looks for Home Assistant on your Wi-Fi, and you sign in with your Home Assistant
             account, or with any address and an access token.</p>
           <p>Then tap once. Each of your areas becomes a page, with the things you reach for most up
@@ -192,30 +187,30 @@
 
         <ol class="steps">
           <li>
-            <div class="step-label"><span class="step-n" aria-hidden="true">1</span><p data-draft="D08">Hearth finds your Home Assistant. Sign in.</p></div>
+            <div class="step-label"><span class="step-n" aria-hidden="true">1</span><p>Sign in</p></div>
             <figure class="screen screen--phone settle">
               <img class="shot-light" src="assets/screens/setup-signin-phone-light.webp" width="720" height="1564" loading="lazy"
-                   alt="Setup on iPhone: There's your home, with the Home Assistant found on the network and a Sign in with Home Assistant button." data-draft="A05" />
+                   alt="Setup on iPhone: There's your home, with the Home Assistant found on the network and a Sign in with Home Assistant button." />
               <img class="shot-dark" src="assets/screens/setup-signin-phone-dark.webp" width="720" height="1564" loading="lazy"
-                   alt="The same sign-in screen in dark appearance." data-draft="A06" />
+                   alt="The same sign-in screen in dark appearance." />
             </figure>
           </li>
           <li>
-            <div class="step-label"><span class="step-n" aria-hidden="true">2</span><p data-draft="D08">Tap Create my dashboard. Hearth sorts everything into rooms.</p></div>
+            <div class="step-label"><span class="step-n" aria-hidden="true">2</span><p>Tap once</p></div>
             <figure class="screen screen--phone settle">
               <img class="shot-light" src="assets/screens/setup-rooms-phone-light.webp" width="720" height="1558" loading="lazy"
-                   alt="Setup on iPhone: Finding rooms, after tapping Create my dashboard; 9 rooms found." data-draft="A07" />
+                   alt="Setup on iPhone: Finding rooms, after tapping Create my dashboard; 9 rooms found." />
               <img class="shot-dark" src="assets/screens/setup-rooms-phone-dark.webp" width="720" height="1558" loading="lazy"
-                   alt="Finding rooms, in dark appearance." data-draft="A07" />
+                   alt="Finding rooms, in dark appearance." />
             </figure>
           </li>
           <li>
-            <div class="step-label"><span class="step-n" aria-hidden="true">3</span><p data-draft="D08">Every area has its page. That’s it.</p></div>
+            <div class="step-label"><span class="step-n" aria-hidden="true">3</span><p>Done</p></div>
             <figure class="screen screen--phone settle">
               <img class="shot-light" src="assets/screens/setup-done-phone-light.webp" width="720" height="1558" loading="lazy"
-                   alt="Setup complete: 9 rooms and 81 cards." data-draft="A08" />
+                   alt="Setup complete: 9 rooms and 81 cards." />
               <img class="shot-dark" src="assets/screens/setup-done-phone-dark.webp" width="720" height="1558" loading="lazy"
-                   alt="Setup complete, in dark appearance." data-draft="A08" />
+                   alt="Setup complete, in dark appearance." />
             </figure>
           </li>
         </ol>
@@ -226,16 +221,16 @@
     <section class="qa" id="home" aria-labelledby="home-title">
       <div class="wrap">
         <div class="qa-head">
-          <h2 id="home-title" data-draft="D09">What’s on the Home page?</h2>
+          <h2 id="home-title">One page for the whole house</h2>
           <p class="answer">Home is the page you’ll see most. Cards of the same kind sit together, and
             some only appear when there’s something to show.</p>
         </div>
         <div class="annotated">
           <figure class="screen settle">
             <img class="shot-light" src="assets/screens/home-ipad-light.webp" width="1200" height="1600" loading="lazy"
-                 alt="Hearth's Home on iPad: an open patio door, the next ferry and tram, a front door camera, today's calendar, what's running, and warm tiles for each room." data-draft="A09" />
+                 alt="Hearth's Home on iPad: an open patio door, the next ferry and tram, a front door camera, today's calendar, what's running, and warm tiles for each room." />
             <img class="shot-dark" src="assets/screens/home-ipad-dark.webp" width="1200" height="1726" loading="lazy"
-                 alt="Hearth's Home on iPad in dark appearance." data-draft="A10" />
+                 alt="Hearth's Home on iPad in dark appearance." />
           </figure>
           <ul>
             <li>Doors, windows and gates left open, and for how long.</li>
@@ -253,7 +248,7 @@
     <section class="glow" id="lights" aria-labelledby="lights-title">
       <div class="wrap glow-grid">
         <div class="qa-head">
-          <h2 id="lights-title" data-draft="D10">How do lights look?</h2>
+          <h2 id="lights-title">A page for each room</h2>
           <p class="answer">A light that’s on glows like a lamp, so there’s no On or Off to read.</p>
           <p>Climate, blinds, locks, cameras and speakers each get a card made for them.</p>
           <p>Cards press in under your finger, with light haptics you can turn off. Controls stay in
@@ -262,15 +257,15 @@
         <div class="phones">
           <figure class="screen screen--phone settle">
             <img class="shot-light" src="assets/screens/lamps-phone-light.webp" width="720" height="1566" loading="lazy"
-                 alt="A living room on iPhone: floor lamp, ceiling light and TV backlight each glowing in their own colour, with brightness sliders." data-draft="A11" />
+                 alt="A living room on iPhone: floor lamp, ceiling light and TV backlight each glowing in their own colour, with brightness sliders." />
             <img class="shot-dark" src="assets/screens/lamps-phone-dark.webp" width="720" height="1566" loading="lazy"
-                 alt="The same living room on iPhone in dark appearance." data-draft="A12" />
+                 alt="The same living room on iPhone in dark appearance." />
           </figure>
           <figure class="screen screen--phone settle">
             <img class="shot-light" src="assets/screens/rooms-phone-light.webp" width="720" height="1566" loading="lazy"
-                 alt="The Rooms tab on iPhone: rooms with lights on are lit in warm amber." data-draft="A13" />
+                 alt="The Rooms tab on iPhone: rooms with lights on are lit in warm amber." />
             <img class="shot-dark" src="assets/screens/rooms-phone-dark.webp" width="720" height="1566" loading="lazy"
-                 alt="The Rooms tab on iPhone in dark appearance." data-draft="A14" />
+                 alt="The Rooms tab on iPhone in dark appearance." />
           </figure>
         </div>
       </div>
@@ -280,9 +275,9 @@
     <section class="qa" id="iphone" aria-labelledby="iphone-title">
       <div class="wrap pocket">
         <div class="qa-head">
-          <h2 id="iphone-title" data-draft="D11">Is there an iPhone version?</h2>
-          <p class="answer" data-draft="D12">Yes. The same home fits your phone, with Home, Rooms and Music along
-            the bottom and a search for any room, device or scene.</p>
+          <h2 id="iphone-title">Hearth on iPhone</h2>
+          <p class="answer">The same home fits your phone: Home and Rooms along the bottom, a search
+            that finds any room, device or scene, and your music one tap away on every page.</p>
           <p>Open any speaker for big artwork and simple controls. The Play on button moves what’s
             playing to another speaker, using what your speakers already support.</p>
           <p>When you leave the player, a small one stays with you around the dashboard.</p>
@@ -290,13 +285,13 @@
         <div class="phones">
           <figure class="screen screen--phone settle">
             <img class="shot-light" src="assets/screens/search-phone-light.webp" width="720" height="1564" loading="lazy"
-                 alt="Search on iPhone: chips for lights, switches, TVs, speakers, climate, blinds, locks, cameras, sensors and scenes, and every room." data-draft="A15" />
+                 alt="Search on iPhone: chips for lights, switches, TVs, speakers, climate, blinds, locks, cameras, sensors and scenes, and every room." />
             <img class="shot-dark" src="assets/screens/search-phone-dark.webp" width="720" height="1564" loading="lazy"
-                 alt="Search on iPhone in dark appearance." data-draft="A16" />
+                 alt="Search on iPhone in dark appearance." />
           </figure>
           <figure class="screen screen--phone settle">
             <img src="assets/screens/player-phone.webp" width="720" height="1564" loading="lazy"
-                 alt="The music player on iPhone: artwork, Slow Lanterns by Ada Winter, playback and volume, and the speaker picker set to Soundbar." data-draft="A17" />
+                 alt="The music player on iPhone: artwork, Slow Lanterns by Ada Winter, playback and volume, and the speaker picker set to Soundbar." />
           </figure>
         </div>
       </div>
@@ -306,9 +301,8 @@
     <section class="night" id="wall" aria-labelledby="wall-title">
       <div class="wrap night-grid">
         <div class="qa-head">
-          <h2 id="wall-title" data-draft="D13">Can it go on a wall?</h2>
-          <p class="answer" data-draft="D14">Yes. Put a spare iPad up where everyone passes and it becomes the
-            household screen.</p>
+          <h2 id="wall-title">For a spare iPad on the wall</h2>
+          <p class="answer">Yes. A spare iPad on the wall becomes the household screen.</p>
           <p>When nobody’s using it, the dashboard fades to a clock, the weather and anything that
             needs attention. Those notices are read-only, so someone walking past can’t unlock a door.</p>
           <p>The screen dims after a delay you choose and stays low at night, during hours you set. A
@@ -317,7 +311,7 @@
         </div>
         <figure class="screen settle">
           <img src="assets/screens/standby-ipad.webp" width="900" height="1296" loading="lazy"
-               alt="Hearth's standby on iPad: a large clock, the date and weather, and three quiet notices on a dark screen." data-draft="A18" />
+               alt="Hearth's standby on iPad: a large clock, the date and weather, and three quiet notices on a dark screen." />
         </figure>
       </div>
     </section>
@@ -326,7 +320,7 @@
     <section class="qa" id="change" aria-labelledby="change-title">
       <div class="wrap">
         <div class="qa-head">
-          <h2 id="change-title" data-draft="D15">What can I change?</h2>
+          <h2 id="change-title">What you can change</h2>
           <p class="answer">Hearth decides how things look, so there’s nothing to design. You decide
             what’s on each page.</p>
           <p>Long-press a card to rename, resize or remove it, or let Magic layout tidy the page for
@@ -338,9 +332,9 @@
         </div>
         <figure class="screen wide-shot settle">
           <img class="shot-light" src="assets/screens/edit-ipad-light.webp" width="1200" height="1162" loading="lazy"
-               alt="Arranging Home on iPad: every card shows remove and resize handles, with Magic layout, Cancel and Done at the top." data-draft="A19" />
+               alt="Arranging Home on iPad: every card shows remove and resize handles, with Magic layout, Cancel and Done at the top." />
           <img class="shot-dark" src="assets/screens/edit-ipad-dark.webp" width="1200" height="1162" loading="lazy"
-               alt="Arranging Home on iPad in dark appearance." data-draft="A20" />
+               alt="Arranging Home on iPad in dark appearance." />
         </figure>
       </div>
     </section>
@@ -349,10 +343,10 @@
     <section class="qa quiet" id="privacy" aria-labelledby="privacy-title">
       <div class="wrap">
         <div class="qa-head">
-          <h2 id="privacy-title" data-draft="D16">Where does my data go?</h2>
+          <h2 id="privacy-title">Privacy</h2>
           <p class="answer">Hearth talks straight to your Home Assistant, at home or at your own remote
             address. There are no Hearth servers in between and no account to sign up for.</p>
-          <p data-draft="D33">Your sign-in stays in the iOS Keychain on your device. Wake on motion is optional and
+          <p>Your sign-in stays in the iOS Keychain on your device. Wake on motion is optional and
             runs on the device. No images are saved or sent. There are no analytics, ads or trackers,
             in the app or on this site.</p>
           <a class="text-link" href="privacy.html">Read the privacy policy</a>
@@ -363,56 +357,45 @@
     <!-- FAQ -->
     <section class="qa" id="faq" aria-labelledby="faq-title">
       <div class="wrap">
-        <h2 id="faq-title" data-draft="D17">More questions</h2>
+        <h2 id="faq-title">Questions</h2>
         <div class="faq">
           <details>
-            <summary data-draft="D18">Does Hearth replace Home Assistant?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <summary>Does Hearth replace Home Assistant?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
             <div><p>No. Hearth is a dashboard for the Home Assistant you already run. Devices,
               integrations and automations stay in Home Assistant; Hearth shows them and lets you
               control them.</p></div>
           </details>
           <details>
-            <summary data-draft="D19">Do I need a Hearth account?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <summary>Do I need a Hearth account?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
             <div><p>No. You sign in to your own Home Assistant, with your Home Assistant account or
               with an address and a long-lived access token. There is no Hearth account and no
               Hearth server.</p></div>
           </details>
           <details>
-            <summary data-draft="D20">Which devices does Hearth run on?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <summary>Which devices does Hearth run on?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
             <div><p>iPad and iPhone with iPadOS or iOS&nbsp;16 or later, including older iPads that run
               iPadOS&nbsp;16.</p></div>
           </details>
           <details>
-            <summary data-draft="D21">Does it work with my devices and integrations?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <summary>Does it work with my devices and integrations?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
             <div><p>Hearth reads Home Assistant’s own areas, devices and standard entity types, so
               it isn’t tied to one brand or integration. If something has no card, you can make a
               custom card for it.</p></div>
           </details>
           <details>
-            <summary data-draft="D22">Does it work away from home?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <summary>Does it work away from home?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
             <div><p>Yes, when your Home Assistant is reachable from outside your home, at your own
               remote address. Hearth connects to the address you give it.</p></div>
           </details>
           <details>
-            <summary data-draft="D23">Can everyone in the household use it?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <summary>Can everyone in the household use it?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
             <div><p>Yes. Each person can sign in with their own Home Assistant user, and it doesn’t
               have to be an admin. Things only an admin can do, like moving a device to another
               room, are only offered to admins.</p></div>
           </details>
           <details>
-            <summary data-draft="D24">What happens to my existing Home Assistant dashboards?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
-            <div><p>Nothing. Hearth doesn’t change your Home Assistant dashboards. You can also start
-              from one of them instead of the automatic setup.</p></div>
-          </details>
-          <details>
-            <summary data-draft="D25">Does Hearth show live camera video?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <summary>Does Hearth show live camera video?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
             <div><p>No. Camera cards show snapshots that refresh, not live video.</p></div>
-          </details>
-          <details>
-            <summary data-draft="D26">Can Hearth alert me when something happens?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
-            <div><p>Hearth is not an alarm or monitoring app. It shows what needs attention while it’s
-              open, but iOS pauses apps in the background, so use Home Assistant’s own notifications
-              for alerts.</p></div>
           </details>
         </div>
       </div>
@@ -421,19 +404,19 @@
     <!-- Guides -->
     <section class="qa" id="guides" aria-labelledby="guides-title">
       <div class="wrap">
-        <h2 id="guides-title" data-draft="D27">Guides</h2>
+        <h2 id="guides-title">Guides</h2>
         <ul class="guide-list">
           <li><a href="guides/home-assistant-dashboard-ipad/">
-            <h3 data-draft="D28">A Home Assistant dashboard for iPad</h3>
-            <p data-draft="D28">What you need, how setup goes, and how to keep a wall iPad tidy.</p>
+            <h3>A Home Assistant dashboard for iPad</h3>
+            <p>What you need, how setup goes, and how to keep a wall iPad tidy.</p>
             <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
           <li><a href="guides/home-assistant-dashboard-without-yaml/">
-            <h3 data-draft="D29">A Home Assistant dashboard without YAML</h3>
-            <p data-draft="D29">How Hearth builds pages from your areas, and what it leaves to you.</p>
+            <h3>A Home Assistant dashboard without YAML</h3>
+            <p>How Hearth builds pages from your areas, and what it leaves to you.</p>
             <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
           <li><a href="guides/hearth-vs-lovelace-dashboard/">
-            <h3 data-draft="D30">Hearth or a dashboard you build yourself</h3>
-            <p data-draft="D30">An honest comparison with Home Assistant’s own dashboards.</p>
+            <h3>Hearth or a dashboard you build yourself</h3>
+            <p>An honest comparison with Home Assistant’s own dashboards.</p>
             <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
         </ul>
       </div>
@@ -449,7 +432,7 @@
             <svg aria-hidden="true"><use href="#apple"/></svg>
             <span><small>Download on the</small><strong>App Store</strong></span>
           </a>
-          <a class="btn btn-quiet" href="guides/home-assistant-dashboard-ipad/" data-draft="D31">Read the iPad guide</a>
+          <a class="btn btn-quiet" href="#setup">See how setup works</a>
         </div>
         <p class="platform">iOS&nbsp;16 or later, on iPad and iPhone.</p>
       </div></div>
@@ -468,7 +451,7 @@
           <p>A Home Assistant dashboard for iPad and iPhone.</p>
         </div>
         <nav class="footer-links" aria-label="Footer">
-          <a href="guides/" data-draft="D02">Guides</a>
+          <a href="guides/">Guides</a>
           <a href="privacy.html">Privacy policy</a>
           <a href="mailto:joakimunge@gmail.com?subject=Hearth">Contact</a>
         </nav>
