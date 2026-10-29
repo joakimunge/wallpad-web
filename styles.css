@@ -31,7 +31,7 @@
   --on-text:     #f4f2ee;
   --accent:      #e07b39;   /* graphics only */
   --accent-text: #9a4614;   /* tangerine for small words: 5.8:1 on paper */
-  --live-display: #c25a1a;  /* tangerine at display size: 4.4:1 on paper */
+  --live-display: #c25a1a;  /* tangerine at display size: about 3.9:1 on paper, large text only */
   --glow:        #f6d9a0;   /* lamplight field, from the app's lit tiles */
   --glow-ink-soft: #5a4630;
   --line:        rgba(42, 39, 36, 0.13);
@@ -508,16 +508,25 @@ h1 .live { color: var(--live-display); }
 .guide-list a:hover svg { transform: translateX(4px); color: var(--ink); }
 
 /* Closing */
-.closing {
-  padding: clamp(72px, 10vw, 136px) 0;
-  background: var(--on); color: var(--on-text);
+.closing { padding: 0 0 clamp(72px, 10vw, 136px); }
+/* The app's inverted ink card, at card size. Dark keeps it a quiet raised card. */
+.closing-card {
+  --card-ink: #2a2724; --card-ink-text: #f4f2ee;
+  background: var(--card-ink); color: var(--card-ink-text);
+  border-radius: var(--r-card);
+  padding: clamp(32px, 6vw, 72px) clamp(24px, 6vw, 72px);
+  box-shadow: 0 2px 6px -2px var(--shadow-near), 0 30px 60px -30px var(--shadow);
 }
-.closing h2 { color: var(--on-text); }
-.closing p.sub { color: color-mix(in srgb, var(--on-text) 82%, var(--on)); }
-.closing .platform { color: color-mix(in srgb, var(--on-text) 70%, var(--on)); }
-.closing .btn-quiet { color: var(--on-text); border-color: color-mix(in srgb, var(--on-text) 35%, transparent); }
-.closing .btn-quiet:hover { border-color: var(--on-text); }
-body:has(.closing) .footer { border-top-color: transparent; }
+:root[data-theme="dark"] .closing-card { --card-ink: #2d2b28; --card-ink-text: #ede9e1; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .closing-card { --card-ink: #2d2b28; --card-ink-text: #ede9e1; }
+}
+.closing h2 { color: var(--card-ink-text); }
+.closing p.sub { color: color-mix(in srgb, var(--card-ink-text) 82%, var(--card-ink)); }
+.closing .platform { color: color-mix(in srgb, var(--card-ink-text) 72%, var(--card-ink)); }
+.closing .btn-quiet { color: var(--card-ink-text); border-color: color-mix(in srgb, var(--card-ink-text) 60%, transparent); }
+.closing .btn-quiet:hover { border-color: var(--card-ink-text); }
+
 .closing h2 { max-width: 16ch; }
 .closing p.sub { font-size: 1.15rem; margin: 16px 0 30px; }
 
