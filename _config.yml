@@ -1,0 +1,9 @@
+# GitHub Pages (Jekyll) settings. Working notes in this repo are not part of the site.
+exclude:
+  - PRODUCT.md
+  - DESIGN.md
+  - PAGES.md
+  - COPY-DRAFTS.md
+  - assets/screens/README.md
+  - assets/media/README.md
+  - README.md

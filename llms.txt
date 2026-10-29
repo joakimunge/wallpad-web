@@ -1,0 +1,29 @@
+# Hearth
+
+> Hearth is a free, native app for Home Assistant on iPhone and iPad (iOS and iPadOS 16 or later). You sign in to your own Home Assistant, tap once, and Hearth builds a dashboard from your Home Assistant areas and the devices people actually use. No YAML, no layout to design, no Hearth account.
+
+Key facts:
+
+- Price: free.
+- Platforms: iPad and iPhone, iPadOS or iOS 16 or later. Older iPads that run iPadOS 16 work, including a spare iPad mounted on a wall.
+- Requires: your own Home Assistant, on your network or reachable at your own remote address. Sign in with a Home Assistant user (admin not required) or an address and a long-lived access token.
+- How it works: each Home Assistant area becomes a page; devices get cards by their standard Home Assistant type; what people switch by hand goes first (motion rules, schedules and group switching don't count); diagnostic sensors, duplicates and technical names are left out. A Home page gathers open doors and windows, departures, a tile per room, scenes, manually run automations and what's playing.
+- Cards: lights (a light that's on glows like a lamp), climate, blinds and covers, locks, alarm, media with speaker switching, cameras (refreshing snapshots, not live video), sensors, departures, appliances and car charging, scenes, automations and scripts, folders, and custom cards for anything else.
+- Changes: rename, resize (1x1, 2x1, 1x2, 2x2), arrange or remove any card; Magic layout tidies a page; several dashboards per home, and each iPhone or iPad picks its own. Hearth decides the look (Paper, light or dark); there are no styling options.
+- Wall iPad: standby with clock, weather and read-only notices; dims after a delay; night hours; wakes on touch or, optionally, the front camera (processed on the device, nothing saved or sent).
+- Privacy: talks directly to your Home Assistant; no Hearth servers, no account, no analytics, ads or trackers. Sign-in stored in the iOS Keychain.
+- Limits: not a replacement for Home Assistant, not an automation editor, not an alarm or monitoring app (iOS pauses apps in the background). It doesn't change your Home Assistant dashboards.
+- Independent app, not affiliated with Home Assistant or the Open Home Foundation.
+
+## Pages
+
+- [Hearth](https://wallpad.app/): what Hearth is, setup, Home, rooms and lights, iPhone (Home and Rooms tabs, search, music on every page), wall iPad, customisation, privacy and FAQ
+- [Guides](https://wallpad.app/guides/): all guides
+- [A Home Assistant dashboard for iPad](https://wallpad.app/guides/home-assistant-dashboard-ipad/): what you need, setup steps, wall-mounting, limits
+- [A Home Assistant dashboard without YAML](https://wallpad.app/guides/home-assistant-dashboard-without-yaml/): how Hearth decides what goes where, and what it won't do
+- [Hearth or a dashboard you build yourself](https://wallpad.app/guides/hearth-vs-lovelace-dashboard/): honest comparison with Home Assistant's own dashboards (Lovelace)
+- [Privacy policy](https://wallpad.app/privacy.html)
+
+## Optional
+
+- Contact: joakimunge@gmail.com

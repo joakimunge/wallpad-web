@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script>(function(){var d=document.documentElement;d.classList.add('js');try{var q=location.search.match(/[?\&]theme=(light|dark)/);var t=q?q[1]:localStorage.getItem('hearth-theme');if(t==='light'||t==='dark')d.setAttribute('data-theme',t);}catch(e){}})();</script>
+  <script src="/config.js"></script>
+
+  <title>A Home Assistant dashboard without YAML · Hearth</title>
+  <meta name="description" content="Hearth builds your Home Assistant dashboard from your areas and real use, with no YAML and no cards to place. How it decides, and what it won't do." />
+  <link rel="canonical" href="https://wallpad.app/guides/home-assistant-dashboard-without-yaml/" />
+
+  <meta property="og:site_name" content="Hearth" />
+  <meta property="og:title" content="A Home Assistant dashboard without YAML · Hearth" />
+  <meta property="og:description" content="Hearth builds your Home Assistant dashboard from your areas and real use, with no YAML and no cards to place. How it decides, and what it won't do." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://wallpad.app/guides/home-assistant-dashboard-without-yaml/" />
+  <meta property="og:image" content="https://wallpad.app/assets/screens/og-hearth.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#f4f2ee" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#161513" media="(prefers-color-scheme: dark)" />
+
+  <link rel="icon" type="image/svg+xml" href="/assets/hearth-mark.svg" />
+  <link rel="preload" href="/assets/fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/styles.css" />
+  <!-- Structured data mirrors this page's questions. Keep both in step. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      { "@type": "BreadcrumbList", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Hearth", "item": "https://wallpad.app/" },
+        { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://wallpad.app/guides/" },
+        { "@type": "ListItem", "position": 3, "name": "A Home Assistant dashboard without YAML", "item": "https://wallpad.app/guides/home-assistant-dashboard-without-yaml/" } ] },
+      { "@type": "HowTo", "name": "How Hearth builds a Home Assistant dashboard without YAML",
+        "step": [
+          { "@type": "HowToStep", "text": "Each area in Home Assistant gets its own page, with every device in it that you can control." },
+          { "@type": "HowToStep", "text": "Devices get a card for their standard Home Assistant type, whatever brand they are." },
+          { "@type": "HowToStep", "text": "What people switch by hand goes first; motion rules, schedules and group switching don't count." },
+          { "@type": "HowToStep", "text": "Diagnostic sensors, duplicates and technical names are left off." },
+          { "@type": "HowToStep", "text": "Home gathers open doors, departures, room tiles, scenes, manual automations and what's playing." } ] },
+      { "@type": "FAQPage", "mainEntity": [
+        { "@type": "Question", "name": "Do I need to know YAML to use Hearth?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Not for Hearth. You sign in and tap once. Anything you set up in Home Assistant itself is up to you." } },
+        { "@type": "Question", "name": "What if my Home Assistant areas are a mess?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Hearth still makes a dashboard, but pages follow your areas. Tidy them in Home Assistant, then use Set up again in Hearth to rebuild the dashboards. Your sign-in stays." } },
+        { "@type": "Question", "name": "Can I start from a Home Assistant dashboard I already have?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Instead of the automatic setup, you can start from one of your Home Assistant dashboards." } } ] }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="apple" viewBox="0 0 24 24"><path fill="currentColor" d="M16.5 3c.1 1.2-.4 2.3-1.1 3.1-.8.9-2 1.5-3.1 1.4-.1-1.1.4-2.3 1.1-3 .8-.9 2.1-1.5 3.1-1.5zM19 17.3c-.6 1.4-.9 2-1.7 3.2-1.1 1.7-2.7 3.8-4.6 3.8-1.7 0-2.1-1.1-4.4-1.1-2.3 0-2.8 1.1-4.4 1.1-1.9 0-3.4-1.9-4.5-3.6C-.9 16-1.2 10.3 1.4 7.4 2.6 6 4.4 5.1 6.1 5.1c1.8 0 2.9 1.1 4.4 1.1 1.4 0 2.3-1.1 4.4-1.1 1.5 0 3.2.8 4.3 2.3-3.8 2-3.2 7.4-.6 9.9z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></g></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="mark" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#2a2724"/><path d="M18 50V31a14 14 0 0 1 28 0v19z" fill="#f5f1e8"/><path d="M32 47c-5 0-8-3-8-7 0-5 5-7 6-12 3 3 4 6 3.5 9 1.5-1 2.5-2.5 2.8-4.2C38.6 35 40 37.4 40 40c0 4-3 7-8 7z" fill="#e07b39"/></symbol>
+  </svg>
+
+  <header class="nav" id="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="/" aria-label="Hearth, home">
+        <svg aria-hidden="true"><use href="#mark"/></svg>
+        <span class="brand-name">Hearth</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a class="link" href="/#setup">How it works</a>
+        <a class="link" href="/guides/">Guides</a>
+        <a class="link" href="/#privacy">Privacy</a>
+        <div class="appearance" role="group" aria-label="Appearance">
+          <button type="button" value="light" aria-pressed="false"><svg aria-hidden="true"><use href="#i-sun"/></svg><span class="vh">Light</span></button>
+          <button type="button" value="dark" aria-pressed="false"><svg aria-hidden="true"><use href="#i-moon"/></svg><span class="vh">Dark</span></button>
+        </div>
+        <a class="appstore appstore--small" data-app-store hidden>
+          <svg aria-hidden="true"><use href="#apple"/></svg>
+          <span><small>Download on the</small><strong>App Store</strong></span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap doc">
+    <article>
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Hearth</a><span aria-hidden="true">/</span><a href="/guides/">Guides</a></nav>
+      <header class="doc-head">
+        <h1>A Home Assistant dashboard without YAML</h1>
+        <p class="doc-meta">Updated 29 October 2026 · iPad and iPhone</p>
+        <div class="short-answer">
+          <p>You don’t need YAML, or to place a single card. Hearth reads your Home Assistant’s areas,
+            devices and how you use them, and builds the dashboard itself on iPad and iPhone.</p>
+          <p>You can still rename, resize or remove anything afterwards.</p>
+        </div>
+      </header>
+
+      <div class="doc-body">
+        <nav class="toc" aria-labelledby="toc-title">
+          <h2 id="toc-title">On this page</h2>
+          <ol>
+            <li><a href="#how">How Hearth decides</a></li>
+            <li><a href="#better">Getting a better result</a></li>
+            <li><a href="#change">What you can still change</a></li>
+            <li><a href="#wont">What Hearth won’t do</a></li>
+            <li><a href="#faq">Questions</a></li>
+          </ol>
+        </nav>
+
+        <div class="prose">
+          <h2 id="how">How Hearth decides what goes where</h2>
+          <ol class="how">
+            <li><strong>Areas become pages.</strong> Each area in Home Assistant gets its own page, with every
+              device in it that you can control.</li>
+            <li><strong>Devices get the card made for them.</strong> Hearth uses Home Assistant’s standard
+              device types, so a light gets a lamp card, a thermostat a climate card and a speaker a music
+              card, whatever brand they are.</li>
+            <li><strong>What you use goes first.</strong> Only what people switch by hand counts, so motion
+              rules, schedules and lights switched as a group don’t skew it.</li>
+            <li><strong>Noise stays out.</strong> Diagnostic sensors, duplicates and technical names are
+              left off the pages.</li>
+            <li><strong>Home gathers the rest.</strong> Doors left open, the next departures, a tile for each
+              room, your scenes, the automations you run by hand, and what’s playing.</li>
+          </ol>
+          <figure>
+            <div class="screen">
+              <img class="shot-light" src="/assets/screens/room-ipad-light.webp" width="1600" height="1240" loading="lazy"
+                   alt="A living room page Hearth made on iPad: three lamps glowing in their own colours, blinds, a TV, a ceiling fan, a patio door contact, a speaker, motion, temperature, a robot vacuum and humidity." />
+              <img class="shot-dark" src="/assets/screens/room-ipad-dark.webp" width="1600" height="1240" loading="lazy"
+                   alt="The same living room page in dark appearance." />
+            </div>
+            <figcaption>A room page, built from one Home Assistant area in the demo home.</figcaption>
+          </figure>
+
+          <h2 id="better">Getting a better result</h2>
+          <p>Hearth relies on what Home Assistant already knows, so a little tidying there pays off everywhere.</p>
+          <ul>
+            <li><strong>Put devices in areas.</strong> In Home Assistant, open Settings, then Areas, labels &amp;
+              zones. A device without an area has no page to go on.</li>
+            <li><strong>Give devices friendly names.</strong> Hearth shows the names Home Assistant has. You can
+              also rename a card in Hearth without touching Home Assistant.</li>
+            <li><strong>Place leftovers from Hearth.</strong> If you’re an admin, Hearth shows devices without a
+              room and lets you put them in one. Apart from controlling your devices, that is the only change
+              Hearth makes in Home Assistant.</li>
+          </ul>
+
+          <h2 id="change">What you can still change</h2>
+          <p>Long-press a card to rename, resize or remove it, or let Magic layout tidy the page for you. If
+            something has no card, make one with a name, an icon, a line of text and what a tap should do. It
+            will look like every other card.</p>
+          <figure>
+            <div class="screen">
+              <img class="shot-light" src="/assets/screens/edit-ipad-light.webp" width="1200" height="1162" loading="lazy"
+                   alt="Arranging Home on iPad: remove and resize handles on every card, with Magic layout, Cancel and Done at the top." />
+              <img class="shot-dark" src="/assets/screens/edit-ipad-dark.webp" width="1200" height="1162" loading="lazy"
+                   alt="Arranging Home on iPad in dark appearance." />
+            </div>
+            <figcaption>Arranging a page. Every card can be 1×1, 2×1, 1×2 or 2×2.</figcaption>
+          </figure>
+
+          <h2 id="wont">What Hearth won’t do</h2>
+          <ul>
+            <li>It won’t let you style cards. Hearth decides colours, fonts and spacing, so there’s nothing to
+              design.</li>
+            <li>It won’t edit automations, add devices or change integrations. That stays in Home Assistant.</li>
+            <li>It won’t change your Home Assistant dashboards. You can keep using them alongside Hearth.</li>
+          </ul>
+
+          <h2 id="faq">Questions</h2>
+          <div class="faq">
+            <details>
+              <summary>Do I need to know YAML at all?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+              <div><p>Not for Hearth. You sign in and tap once. Anything you set up in Home Assistant itself is
+                up to you.</p></div>
+            </details>
+            <details>
+              <summary>What if my areas are a mess?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+              <div><p>Hearth still makes a dashboard, but pages follow your areas. Tidy them in Home Assistant,
+                then use Set up again in Hearth to rebuild the dashboards. Your sign-in stays.</p></div>
+            </details>
+            <details>
+              <summary>Can I start from a dashboard I already have?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+              <div><p>Yes. Instead of the automatic setup, you can start from one of your Home Assistant
+                dashboards.</p></div>
+            </details>
+          </div>
+
+          <section class="doc-end" aria-labelledby="end-title">
+            <h2 id="end-title">Try it with your Home Assistant</h2>
+            <p>Sign in, tap once, and your rooms are there.</p>
+            <div class="actions">
+              <a class="appstore" data-app-store hidden>
+                <svg aria-hidden="true"><use href="#apple"/></svg>
+                <span><small>Download on the</small><strong>App Store</strong></span>
+              </a>
+              <a class="btn btn-quiet" href="/guides/hearth-vs-lovelace-dashboard/">Next: Hearth or build your own</a>
+            </div>
+          </section>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-inner">
+        <div>
+          <a class="brand" href="/" aria-label="Hearth, home">
+            <svg aria-hidden="true"><use href="#mark"/></svg>
+            <span class="brand-name">Hearth</span>
+          </a>
+          <p>A Home Assistant dashboard for iPad and iPhone.</p>
+        </div>
+        <nav class="footer-links" aria-label="Footer">
+          <a href="/guides/">Guides</a>
+          <a href="/privacy.html">Privacy policy</a>
+          <a href="mailto:joakimunge@gmail.com?subject=Hearth">Contact</a>
+        </nav>
+      </div>
+      <p class="fine">&copy; <span id="year">2026</span> Hearth. Hearth is an independent app and is not
+        affiliated with or endorsed by Home Assistant or the Open Home Foundation. Apple, the Apple logo,
+        iPad and iPhone are trademarks of Apple Inc. App Store is a service mark of Apple Inc.</p>
+    </div>
+  </footer>
+
+  <script src="/site.js"></script>
+</body>
+</html>
