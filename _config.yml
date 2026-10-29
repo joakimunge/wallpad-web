@@ -7,3 +7,4 @@ exclude:
   - assets/screens/README.md
   - assets/media/README.md
   - README.md
+  - assets/screens/*.json
